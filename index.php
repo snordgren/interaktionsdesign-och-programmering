@@ -110,7 +110,7 @@
                           htmlText += array[i];
                           htmlText += '" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> <a id='
                           htmlText += array[i];
-                          htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="rounded img-fluid border" src="/projects/test/img/';
+                          htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="rounded img-fluid border" src="/img/';
                           htmlText += array[i];
                           htmlText += '.jpg" hspace="20" width="330" length="330"> </a> </div>';
 
@@ -153,7 +153,7 @@
 
                     }else{
                       //The image
-                      htmlImg = '<img class="rounded img-fluid border" src="/projects/test/img/'
+                      htmlImg = '<img class="rounded img-fluid border" src="/img/'
                       htmlImg += x;
                       htmlImg += '.jpg" hspace="20" width="300" length="300">'
                       //The information about the picture
