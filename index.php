@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="modalStyles.css"> -->
+    
 
     <!-- SOURCE FILES -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,8 +33,8 @@
 
               <div class="jumbotron">
 
-                <h3>Bildsök</h3>
-                <br>
+                <h3 style="font-family:Courier New, Courier, monospace;"> Bildsök: </h3>
+                
                   <form action="">
                    <input type="text" id="txt1" onkeyup="showImage(this.value)">
                   </form>
@@ -53,7 +54,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="imgModalLabel">Detaljer</h5>
+            <h5 class="modal-title" id="imgModalLabel" style="font-family:Courier New, Courier, monospace;"> Beskrivning </h5>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -63,15 +64,16 @@
           <div class="modal-body">
             <div class="row" id="imgModalContent">
 
-                <div class="col-sm-6" id="imgDetails"> </div>
-
+                <div class="col-sm-6" id="imgDetails">  </div>
+                
                 <div class="col-sm-6" id="imgInfo"> </div>
+
 
             </div>
           </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-        <!--<button type="button" class="btn btn-primary">Save changes</button> -->
+        <button type="button" class="btn btn-primary" onclick="download()">Ladda ner</button>
       </div>
     </div>
   </div>
@@ -110,7 +112,7 @@
                           htmlText += array[i];
                           htmlText += '" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> <a id='
                           htmlText += array[i];
-                          htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="rounded img-fluid border" src="/projects/test/img/';
+                          htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="rounded img-fluid border" src="/img/';
                           htmlText += array[i];
                           htmlText += '.jpg" hspace="20" width="330" length="330"> </a> </div>';
 
@@ -153,16 +155,16 @@
 
                     }else{
                       //The image
-                      htmlImg = '<img class="rounded img-fluid border" src="/projects/test/img/'
+                      htmlImg = '<img class="rounded img-fluid border" src="/img/'
                       htmlImg += x;
-                      htmlImg += '.jpg" hspace="20" width="300" length="300">'
+                      htmlImg += '.jpg" hspace="10" width="400" length="400">'
                       //The information about the picture
                       //htmlText = 'Photographer: ';
                       //htmlText += '<br>Date taken: ';
                       //htmlText += '<br>Times left to be used: ';
-                      htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#bdbdbd"> </th> <th scope="col" bgcolor="#bdbdbd"> </th> </tr> </thead> <tbody> <tr> <th scope="row">Title: </th> <td>'
+                      htmlText = '<div class="container"> <table class="table"> <thead > <tr> <th scope="col" bgcolor="#bdbdbd"> </th> <th scope="col" bgcolor="#bdbdbd"> </th> </tr> </thead> <tbody> <tr> <th scope="row" >Titel: </th> <td style="text-align: left;">'
                       htmlText += x;
-                      htmlText += '</td> </tr> <tr> <th scope="row">Photographer: </th><td> ? </td> </tr><tr><th scope="row">Times left to be used: </th><td> ? </td></tr></tbody></table> </div>';
+                      htmlText += '</td> </tr> <tr> <th scope="row">Upplösning: </th><td style="text-align: left;"> ? </td> </tr><tr><th scope="row">Fotograf: </th><td style="text-align: left;"> ? </td></tr> <tr> <th scope="row">Antal bruk kvar: </th><td style="text-align: left;"> ? </td> </tr> </tbody></table> </div>';
                     }
 
                       document.getElementById("imgDetails").innerHTML = htmlImg;
@@ -185,6 +187,12 @@
             function aFunctionOut(x){
 
               document.getElementById(x).style.backgroundColor ="#FFFFFF";
+            }
+            //download function
+            function download(){
+
+              alert("Hej!");
+
             }
 
         </script>
