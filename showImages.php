@@ -33,7 +33,7 @@
 
               for (var i = 0; i < array.length; i++) {
 
-                  htmlText += '<div class="float-left" id="test'
+                  htmlText += '<div class="imgDiv float-left" id="test'
                   htmlText += array[i];
                   htmlText += '" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> <a id='
                   htmlText += array[i];
@@ -85,10 +85,8 @@
           htmlImg = '<img class="rounded img-fluid border" src="./img/'
           htmlImg += x;
           htmlImg += '.jpg" hspace="20" width="300" length="300">'
+
           //The information about the picture
-          //htmlText = 'Photographer: ';
-          //htmlText += '<br>Date taken: ';
-          //htmlText += '<br>Times left to be used: ';
           htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#bdbdbd"> </th> <th scope="col" bgcolor="#bdbdbd"> </th> </tr> </thead> <tbody> <tr> <th scope="row">Title: </th> <td>'
           htmlText += x;
           htmlText += '</td> </tr> <tr> <th scope="row">Photographer: </th><td> ? </td> </tr><tr><th scope="row">Times left to be used: </th><td> ? </td></tr></tbody></table> </div>';

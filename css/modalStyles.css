@@ -1,0 +1,9 @@
+/* Detta används ej, men kan användas senare.. */
+
+.modal.fade .modal-dialog {
+  transform: translate3d(0, 30vh, 0);
+}
+
+.modal.in .modal-dialog {
+  transform: translate3d(0, 0, 0);
+}
