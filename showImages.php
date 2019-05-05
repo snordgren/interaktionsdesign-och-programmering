@@ -30,16 +30,19 @@
           htmlText = "No results found.."
 
         }else{
+            
 
               for (var i = 0; i < array.length; i++) {
 
-                  htmlText += '<div class="imgDiv float-left" id="test'
+                  htmlText += '<div class="col-md-4 imgDiv" id="test1'
                   htmlText += array[i];
-                  htmlText += '" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> <a id='
+                  htmlText += '" > <a id='
                   htmlText += array[i];
-                  htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="rounded img-fluid border" src="./img/';
+                  htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="img-thumbnail" src="./img/';
                   htmlText += array[i];
-                  htmlText += '.jpg" hspace="20" width="330" length="330"> </a> </div>';
+                  htmlText += '.jpg" id="test2';
+                  htmlText += array[i];
+                  htmlText += '" width="345" length="345" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> </a> </div>';
 
                 }
             }
@@ -53,6 +56,7 @@
 
     xhttp.send();
   }
+
 
   /* Denna funktion visar detaljerad information i modalen */
   function showImageDetails(str) {
@@ -106,13 +110,15 @@
   //ON HOVER, input=id
   function aFunctionOver(x){
 
-  document.getElementById(x).style.backgroundColor ="#bdbdbd";
+  
+  document.getElementById(x).classList.add('hoverShadow');
 
   }
   //Change color back to white
   function aFunctionOut(x){
 
-  document.getElementById(x).style.backgroundColor ="#FFFFFF";
+  
+  document.getElementById(x).classList.remove('hoverShadow');
   }
 
 </script>

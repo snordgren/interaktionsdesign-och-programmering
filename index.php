@@ -26,7 +26,7 @@
       <h1 style="background-color:#bdbdbd; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
     </div>
 
-    <div class=container>
+    <div class="container">
 
 
         <div class="jumbotron">
@@ -39,11 +39,16 @@
             <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
               <input type="text" id="txt1" onkeyup="showImages(this.value)">
             </form>
+
+
+          </div>
+
+          <!-- I denna div så visas bild-resultaten -->
+          <div class="row" id="imgSuggestion"> 
               
         </div>
 
-          <!-- I denna div så visas bild-resultaten -->
-          <div id="imgSuggestion"> </div>
+          
 
     </div>
 

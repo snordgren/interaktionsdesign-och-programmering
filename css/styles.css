@@ -1,5 +1,13 @@
 .imgDiv {
 
   margin-bottom: 30px;
+  
+}
+
+.hoverShadow {
+
+  
+  box-shadow: 10px 11px 23px -1px rgba(0,0,0,0.73);
+  
 
 }
