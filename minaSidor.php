@@ -27,7 +27,7 @@
         <div class="navContainer container d-flex justify-content-center">
           <ul class="nav nav-pills">
               <li class="nav-item">
-                <a class="nav-link active" href="./index.php">Hem</a>
+                <a class="nav-link" href="./index.php">Hem</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
@@ -36,58 +36,21 @@
                 <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+                <a class="nav-link active" href="./minaSidor.php">Mina Sidor</a>
               </li>
 
             </ul>
         </div>
-      
-    </div>               
+    </div>            
+
 
     <div class="container">
 
-        <div class="jumbotron">
-        <h1 class="searchHeader"> Sök: </h1>
-          <div class="row ">
-          
-              <form action="">
-                <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
-                <input type="text" class="txt1" onkeyup="showImages(this.value)">
-                </form>
+      Nämen hej
 
-            <!-- row ends -->
-            </div>
+    </div>   
 
-            <button class="btn btn-secondary btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Alternativ
-                  </button>
-
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Dölj hyrda bilder</label>
-                          </div>
-                        
-                      </div>
-                    </div>
-
-          <!-- Jumbotron ends -->
-          </div>
-
-          <!-- I denna div så visas bild-resultaten -->
-          <div class="row" id="imgSuggestion"> 
-                  
-          </div>
-
-
-      <!-- Container ends -->
-      </div>
-    
-   
-
-
+  
     <!-- END of webbpage -->
 
 

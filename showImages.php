@@ -91,9 +91,9 @@
           htmlImg += '.jpg" hspace="20" width="300" length="300">'
 
           //The information about the picture
-          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#bdbdbd"> </th> <th scope="col" bgcolor="#bdbdbd"> </th> </tr> </thead> <tbody> <tr> <th scope="row">Title: </th> <td>'
+          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">Titel: </th> <td>'
           htmlText += x;
-          htmlText += '</td> </tr> <tr> <th scope="row">Photographer: </th><td> ? </td> </tr><tr><th scope="row">Times left to be used: </th><td> ? </td></tr></tbody></table> </div>';
+          htmlText += '</td> </tr> <tr> <th scope="row">Fotograf: </th><td> ? </td> </tr><tr><th scope="row">Kategori: </th><td> ? </td></tr><tr><th scope="row">Status: </th><td> ? </td></tr></tbody></table> </div>';
         }
 
           /* Manipulerar element i modalen */

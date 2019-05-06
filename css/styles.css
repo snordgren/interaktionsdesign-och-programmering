@@ -5,9 +5,33 @@
 }
 
 .hoverShadow {
-
   
   box-shadow: 10px 11px 23px -1px rgba(0,0,0,0.73);
   
+}
+
+.btn-secondary {
+
+  background-color:#7ABDFF;
+   color:#FFFFFF;
 
 }
+
+.txt1  {
+
+  margin: 10px;
+  margin-bottom: 30px;
+
+}
+
+.navContainer {
+  margin:auto;
+}
+
+.searchHeader {
+  margin: 10px;
+}
+
+
+
+

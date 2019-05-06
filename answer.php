@@ -33,7 +33,8 @@ $a[] = "Ellen";
 // get the q parameter from URL
 $q = $_REQUEST["q"];
 
-$hint = "";
+//
+$response = "";
 
 // lookup all hints from array if $q is different from ""
 if ($q !== "") {
@@ -44,15 +45,15 @@ if ($q !== "") {
 
         if (stristr($q, substr($name, 0, $len))) {
 
-            if ($hint === "") {
-                $hint = $name;
+            if ($response === "") {
+                $response = $name;
             } else {
-                $hint .= ",$name";
+                $response .= ",$name";
             }
         }
     }
 }
 
 // Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
+echo $response === "" ? "no suggestion" : $response;
 ?>
