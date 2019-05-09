@@ -1,100 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bothniabladet</title>
+<html lang="sv">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="modalStyles.css"> -->
-    <link rel="stylesheet" href="./css/styles.css">
+<head>
+  <meta charset="UTF-8">
 
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Bothniabladet</title>
 
-  <body>
-    <!-- Inkluderar projektfiler -->
-    <?php include 'modal.php'; ?>
-    <?php include 'showImages.php'; ?>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="modalStyles.css"> -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+
+<body>
+  <!-- Inkluderar projektfiler -->
+  <?php include 'modal.php'; ?>
+  <?php include 'showImages.php'; ?>
 
 
-    <!-- START of webbpage -->
+  <!-- START of webbpage -->
 
-    <div class="jumbotron jumbotron-fluid">
-      <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
+  <div class="jumbotron jumbotron-fluid">
+    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
 
-        <div class="navContainer container d-flex justify-content-center">
-          <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="./index.php">Hem</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
-              </li>
+    <div class="navContainer container d-flex justify-content-center">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="./index.php">Hem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+        </li>
 
-            </ul>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="jumbotron">
+
+      <h2> Sök: </h2>
+
+      <div class="row">
+
+
+        <div class="">
+
+          <form action="">
+            <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
+            <input type="text" class="txt1" id="txt1" size="50" placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">
+          </form>
+
         </div>
-      
-    </div>               
-
-    <div class="container">
-
-        <div class="jumbotron">
-        <h1 class="searchHeader"> Sök: </h1>
-          <div class="row ">
-          
-              <form action="">
-                <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
-                <input type="text" class="txt1" onkeyup="showImages(this.value)">
-                </form>
-
-            <!-- row ends -->
-            </div>
-
-            <button class="btn btn-secondary btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Alternativ
-                  </button>
-
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Dölj hyrda bilder</label>
-                          </div>
-                        
-                      </div>
-                    </div>
-
-          <!-- Jumbotron ends -->
-          </div>
-
-          <!-- I denna div så visas bild-resultaten -->
-          <div class="row" id="imgSuggestion"> 
-                  
-          </div>
 
 
-      <!-- Container ends -->
+        <!-- row ends -->
       </div>
-    
-   
+
+      <form action="">
+
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="hideCinderella()">
+        <label class="form-check-label" for="inlineCheckbox1">Göm hyrda bilder (Ur funktion)</label>
+
+      </form>
+
+      <!-- Jumbotron ends -->
+    </div>
+
+    <!-- I denna div så visas bild-resultaten -->
+    <div class="row" id="imgSuggestion">
+
+    </div>
+
+    <!-- Container ends -->
+  </div>
 
 
-    <!-- END of webbpage -->
+  <!-- END of webbpage -->
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-  </body>
+</body>
 
 </html>

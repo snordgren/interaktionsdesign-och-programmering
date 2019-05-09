@@ -13,14 +13,7 @@
 .btn-secondary {
 
   background-color:#7ABDFF;
-   color:#FFFFFF;
-
-}
-
-.txt1  {
-
-  margin: 10px;
-  margin-bottom: 30px;
+  color:#FFFFFF;
 
 }
 
@@ -28,8 +21,21 @@
   margin:auto;
 }
 
-.searchHeader {
+.txt1  {
+
   margin: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+.searchHeader {
+  margin: 50px;
+  
+}
+
+.form-check-input {
+  margin-left: 40px;
 }
 
 

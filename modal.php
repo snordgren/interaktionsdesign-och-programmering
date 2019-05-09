@@ -14,18 +14,18 @@
           <div class="modal-body">
             <div class="row" id="imgModalContent">
 
-                <div class="col-sm-4" id="imgDetails"> </div>
+              <div class="col-sm-6" id="imgDetails"> </div>
 
-                <div class="col-sm-8" id="imgInfo"> </div>
+              <div class="col-sm-6" id="imgInfo"> </div>
 
             </div>
           </div>
           <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-        <button type="button" class="btn btn-primary">Ladda Ner</button> 
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+            <button type="button" class="btn btn-primary">Ladda Ner</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- END MODAL CONTENT -->
