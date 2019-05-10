@@ -1,8 +1,5 @@
 <script>
-  var hCinderella = false;
-
   function showImages(str) {
-
 
     /* Om strängen är tom.. */
     if (str.length == 0) {
@@ -59,44 +56,35 @@
 
     //GET is better than POST cuz GET can be cached and the data isnt sensitive.
     //Open request
-    if (hCinderella == true) {
 
-      xhttp.open("GET", "searchEngine.php?q=" + str, true);
-      //send request
-      xhttp.send();
+    xhttp.open("GET", "searchEngine.php?q=" + str, true);
+    //send request
+    xhttp.send();
 
-    } else {
 
-      xhttp.open("GET", "searchEngine.php?q=" + str, true);
-      //send request
-      xhttp.send();
-
-    }
   }
 
+  function showImageDetails(x) {
 
-  /* Denna funktion visar detaljerad information i modalen */
-  function showImageDetailsOLD(str) {
-    //alert("input is: " + str);
-    var xhttp;
-    //  if (str.length == 0) {
-    //    document.getElementById("txtHint").innerHTML = "";
-    //    return;
-    //  }
-    xhttp = new XMLHttpRequest();
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-      //Make sure its ready
+
       if (this.readyState == 4 && this.status == 200) {
 
-        var x = str;
+        //Fångar responsen
+        var y = this.responseText;
 
-        //alert("response is: "+ x);
-        //document.getElementById("txtHint").innerHTML = x;
-        //split up the results and store in array
-        var array = x.split(",");
-        //going thtough the array
+        //Delar upp svars-strängen i en array
+        var ImageProperties = y.split(',')
+
+        //Skriver ut för test
+        //alert(ImageProperties.toString());
+
+        //RENDERING
+
         var htmlImg = "";
         var htmlText = "";
+
         if (x === "") {
 
           htmlText = "No results found.."
@@ -108,68 +96,24 @@
           htmlImg += '.jpg" hspace="20" width="300" length="300">'
 
           //The information about the picture
-          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">Titel: </th> <td>'
-          htmlText += x;
-          htmlText += '</td> </tr> <tr> <th scope="row">Fotograf: </th><td> ? </td> </tr><tr><th scope="row">Kategori: </th><td> ? </td></tr><tr><th scope="row">Status: </th><td> ? </td></tr></tbody></table> </div>';
+          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">ID: </th> <td>'
+          htmlText += ImageProperties[0];
+          htmlText += '</td> </tr> <tr> <th scope="row">Upplösning: </th><td>'
+          htmlText += ImageProperties[2];
+          htmlText += '</td> </tr><tr><th scope="row">Status: </th><td>'
+          htmlText += 'Ägd eller lånad';
+          htmlText += '</td></tr></tbody></table> </div>'
         }
 
         /* Manipulerar element i modalen */
         document.getElementById("imgDetails").innerHTML = htmlImg;
         document.getElementById("imgInfo").innerHTML = htmlText;
 
-
-      }
-    };
-    xhttp.open("GET", "searchEngine.php?q=" + str, true);
-    xhttp.send();
-  }
-
-
-
-
-  function showImageDetails(x) {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-
-      if (this.readyState == 4 && this.status == 200) {
-
-        var y = this.responseText;
-
-        alert(y);
-
-
-
       }
     };
 
     xhttp.open("GET", "imageDetails.php?q=" + x, true);
     xhttp.send();
-
-    //RENDERING
-
-    var htmlImg = "";
-    var htmlText = "";
-
-    if (x === "") {
-
-      htmlText = "No results found.."
-
-    } else {
-      //The image
-      htmlImg = '<img class="rounded img-fluid border" src="./img/'
-      htmlImg += x;
-      htmlImg += '.jpg" hspace="20" width="300" length="300">'
-
-      //The information about the picture
-      htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">ID: </th> <td>'
-      htmlText += x;
-      htmlText += '</td> </tr> <tr> <th scope="row">Fotograf: </th><td> ? </td> </tr><tr><th scope="row">Kategori: </th><td> ? </td></tr><tr><th scope="row">Status: </th><td> ? </td></tr></tbody></table> </div>';
-    }
-
-    /* Manipulerar element i modalen */
-    document.getElementById("imgDetails").innerHTML = htmlImg;
-    document.getElementById("imgInfo").innerHTML = htmlText;
 
   }
 
@@ -178,36 +122,14 @@
   //ON HOVER, input=id
   function aFunctionOver(x) {
 
-
     document.getElementById(x).classList.add('hoverShadow');
 
   }
+
   //Change color back to white
   function aFunctionOut(x) {
 
-
     document.getElementById(x).classList.remove('hoverShadow');
-  }
-
-
-
-
-
-  function hideCinderella() {
-
-    if (hCinderella == false) {
-      hCinderella = true;
-      console.log('h is true');
-
-      showImages(document.getElementById("txt1").value);
-    } else {
-      hCinderella = false;
-      console.log('h is false');
-
-      showImages(document.getElementById("txt1").value);
-    }
-
-
 
   }
 </script>

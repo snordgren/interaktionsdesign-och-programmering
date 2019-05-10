@@ -20,6 +20,7 @@
   <?php include 'showImages.php'; ?>
 
 
+
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
@@ -67,12 +68,7 @@
         <!-- row ends -->
       </div>
 
-      <form action="">
-
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="hideCinderella()">
-        <label class="form-check-label" for="inlineCheckbox1">Göm hyrda bilder (Ur funktion)</label>
-
-      </form>
+      
 
       <!-- Jumbotron ends -->
     </div>

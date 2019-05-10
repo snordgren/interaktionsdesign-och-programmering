@@ -16,27 +16,23 @@
   color:#FFFFFF;
 
 }
-
+/* Nav bar */
 .navContainer {
   margin:auto;
 }
-
+/* Search box */
 .txt1  {
 
   margin: 10px;
   margin-bottom: 30px;
-  text-align: center;
+  
 }
-
-
+/* Header above Search box */
 .searchHeader {
-  margin: 50px;
+  margin: 10px;
   
 }
 
-.form-check-input {
-  margin-left: 40px;
-}
 
 
 

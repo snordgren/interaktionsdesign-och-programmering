@@ -16,13 +16,44 @@
 
               <div class="col-sm-6" id="imgDetails"> </div>
 
-              <div class="col-sm-6" id="imgInfo"> </div>
+              <div class="col-sm-6">
+
+                <div id="imgInfo"> </div>
+
+                <!-- EXANDABLE-->
+
+                <div id="collapseExample">
+                  <div class="card card-body">
+                    <p>
+                      Titel: XXX
+                      <br>
+                      Fotograf: XXX
+                      <br>
+                      Upplösning: XXX
+                      <br>
+                      Datum: XXX
+                      <br>
+                      Plats: XXX
+                      <br>
+                      Blabla: XXX
+                    </p>
+                  </div>
+                </div>
+                
+                <!-- EXPANDABLE ENDS -->
+
+                
+              </div>
 
             </div>
+
+
           </div>
           <div class="modal-footer">
+
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-            <button type="button" class="btn btn-primary">Ladda Ner</button>
+            <button type="button" class="btn btn-primary">Lägg Till i Order</button>
+
           </div>
         </div>
       </div>

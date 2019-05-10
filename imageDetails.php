@@ -1,6 +1,6 @@
 <?php
 
-include "pdo.php";
+include "sqlite.php";
 
 //Get the input
 $ID = $_REQUEST["q"];
@@ -9,14 +9,15 @@ $ID = $_REQUEST["q"];
 $response = "";
 
 
-    $sql1 = "SELECT * FROM orginalbild ob WHERE ob.orginalbild_ID = ?;";
 
-    $stmt1 = $pdo->prepare($sql1);
+    $sql1 = "SELECT * FROM Orginalbild WHERE Orginalbild.orginalbild_Id = ?;";
+
+    $stmt1 = $db->prepare($sql1);
     $stmt1->execute([$ID]);
 
     while ($row = $stmt1 -> fetch (PDO::FETCH_ASSOC)){
 
-      $response = $row['Titel'];
+      $response = $row['Orginalbild_Id'] . "," . $row['Titel'] . "," . $row['Upplösning'];
 
     }
 
