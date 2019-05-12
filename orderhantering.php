@@ -18,7 +18,7 @@
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
   <?php include 'sqlite.php'; ?>
-  <script type="text/javascript" src="showImages.js"></script>
+  <script type="text/javascript" src="image.js"></script>
   <script type="text/javascript" src="order.js"></script>
 
   <!-- START of webbpage -->

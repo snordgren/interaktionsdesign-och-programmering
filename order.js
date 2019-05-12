@@ -1,5 +1,7 @@
-
+//********************************************AddToOrder******************************************** */
 function addToOrder(){
+
+  var requestId = "addToOrder";
   
   if(document.getElementById("statusInTable").innerHTML == "Ägd"){
 
@@ -31,7 +33,7 @@ function addToOrder(){
         //GET is better than POST cuz GET can be cached and the data isnt sensitive.
         //Open request
 
-        xhttp.open("GET", "addToOrder.php?q=" + imgId, true);
+        xhttp.open("GET", "order.php?q=" + imgId + "&requestId=" + requestId, true);
         //send request
         xhttp.send();
 
@@ -44,10 +46,12 @@ function addToOrder(){
 
 }
 
-//**************************************************************************************** */
+//********************************************RemoveFromOrder******************************************** */
 
 //Funktion som tar bort 1 bild från order
 function removeFromOrder(imgId){
+
+  var requestId = "removeFromOrder";
 
   var xhttp = new XMLHttpRequest();
 
@@ -75,17 +79,19 @@ function removeFromOrder(imgId){
     //GET is better than POST cuz GET can be cached and the data isnt sensitive.
     //Open request
 
-    xhttp.open("GET", "removeFromOrder.php?q=" + imgId, true);
+    xhttp.open("GET", "order.php?q=" + imgId + "&requestId=" + requestId, true);
     //send request
     xhttp.send();
 
       
 }
 
-//**************************************************************************************** */
+//******************************************ResetOrder************************************************** */
 
 //Funktion som tar bort allt från order
 function resetOrder(){
+
+  var requestId = "resetOrder";
 
   var xhttp = new XMLHttpRequest();
 
@@ -113,7 +119,7 @@ function resetOrder(){
     //GET is better than POST cuz GET can be cached and the data isnt sensitive.
     //Open request
 
-    xhttp.open("GET", "resetOrder.php", true);
+    xhttp.open("GET", "order.php" + "?requestId=" + requestId, true);
     //send request
     xhttp.send();
 

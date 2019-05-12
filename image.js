@@ -1,6 +1,8 @@
 
   function showImages(str) {
 
+    var requestId = "showImages";
+
     /* Om strängen är tom.. */
     if (str.length == 0) {
       document.getElementById("imgSuggestion").innerHTML = "";
@@ -57,7 +59,7 @@
     //GET is better than POST cuz GET can be cached and the data isnt sensitive.
     //Open request
 
-    xhttp.open("GET", "searchEngine.php?q=" + str, true);
+    xhttp.open("GET", "image.php?q=" + str + "&requestId=" + requestId, true);
     //send request
     xhttp.send();
 
@@ -67,6 +69,8 @@
   //**************************************************************************************** */
 
   function showImageDetails(x) {
+
+    var requestId = "showImageDetails";
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -132,7 +136,7 @@
       }
     };
 
-    xhttp.open("GET", "imageDetails.php?q=" + x, true);
+    xhttp.open("GET", "image.php?q=" + x + "&requestId=" + requestId, true);
     xhttp.send();
 
   }
@@ -154,3 +158,5 @@
     document.getElementById(x).classList.remove('hoverShadow');
 
   }
+
+  
