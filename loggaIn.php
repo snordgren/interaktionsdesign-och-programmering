@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
   <meta charset="UTF-8">
@@ -20,6 +20,7 @@
   <script type="text/javascript" src="showImages.js"></script>
 
 
+
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
@@ -28,32 +29,39 @@
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="./adminIndex.php">Hem</a>
+          <a class="nav-link" href="./index.php">Hem</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./laddaUppBild.php">Ladda Upp Bild</a>
+          <a class="nav-link" href="./tipsa.php">Tipsa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
+          <a class="nav-link" href="./kontaktaOss.php">Kontakta Oss</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+          <a class="nav-link active" href="./loggaIn.php">Logga In</a>
         </li>
 
       </ul>
     </div>
+
   </div>
 
-
   <div class="container">
+  <div class="d-flex justify-content-center"> <p> Log-in för endast anställda </p> </div>
+    <div class="d-flex justify-content-center"> <a href="./adminIndex.php" onClick="login()">LOGGA IN</a> </div>
 
-    Hej igen
+    <script>
+      function login() {
+        alert("Loggar in..");
+      }
+    </script>
 
+
+    <!-- Container ends -->
   </div>
 
 
   <!-- END of webbpage -->
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

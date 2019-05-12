@@ -1,7 +1,7 @@
     <!-- MODAL CONTENT STARTS HERE -->
 
     <!-- Inkluderar projektfiler-->
-    <script type="text/javascript" src="Order.js"></script>
+    <script type="text/javascript" src="order.js"></script>
 
 
     <div class="modal fade text-center" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

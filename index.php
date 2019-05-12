@@ -32,13 +32,13 @@
           <a class="nav-link active" href="./index.php">Hem</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
+          <a class="nav-link" href="./tipsa.php">Tipsa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
+          <a class="nav-link" href="./kontaktaOss.php">Kontakta Oss</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+          <a class="nav-link" href="./loggaIn.php">Logga In</a>
         </li>
 
       </ul>
@@ -47,32 +47,11 @@
   </div>
 
   <div class="container">
-    <div class="d-flex justify-content-center"> <h2> Bildsök </h2> </div>
-    <div class="jumbotron">
+    
+    <div class="d-flex justify-content-center"> <h2> Välkommen till Bothniabladet! </h2> </div>
 
+    <div class="d-flex justify-content-center"> <p> Här kan du tipsa oss om bilder relaterade till lokala nyhetsincidenter </p> </div>
 
-        <div class="d-flex justify-content-center">
-
-          <form action="">
-            <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
-            <input type="text" class="txt1" id="txt1" size="50"  placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">
-          </form>
-
-        
-
-
-        <!-- row ends -->
-      </div>
-
-      
-
-      <!-- Jumbotron ends -->
-    </div>
-
-    <!-- I denna div så visas bild-resultaten -->
-    <div class="row d-flex justify-content-center" id="imgSuggestion">
-
-    </div>
 
     <!-- Container ends -->
   </div>

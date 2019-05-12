@@ -28,7 +28,7 @@
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="./index.php">Hem</a>
+          <a class="nav-link" href="./adminIndex.php">Hem</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
@@ -47,9 +47,20 @@
 
   <div class="container">
 
-    Nämen hej
+
+
+
+    <div class="d-flex justify-content-center"> <a class="nav-link" href="./index.php" onClick="logOut()">LOGGA UT</a> </div>
 
   </div>
+
+
+  <script>
+    function logOut() {
+      alert("Loggar ut..");
+    }
+  </script>
+
 
 
   <!-- END of webbpage -->
