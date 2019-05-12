@@ -18,35 +18,54 @@
           <div class="modal-body">
             <div class="row" id="imgModalContent">
 
-              <div class="col-sm-6" id="imgDetails"> </div>
+              <div class="col-sm-6">
+
+                <div id="imgDetails">
+
+                </div>
+                <!-- BESKRIVING AV BILD -->
+                <div class="bildBeskrivning card card-body">
+                  <p> <b> Beskrivning </b> </p>
+                  <p class="text"> THis is a picture of a dog that was taken in the beautiful city of gangangang </p>
+                </div>
+                <!-- KNAPP FÖR VARIANTER -->
+                <div>
+                  <button type="button" class="btn-showVariants btn btn-secondary float-left">Visa varianter</button>
+                </div>
+
+              </div>
 
               <div class="col-sm-6">
 
                 <div id="imgInfo" class="card"> </div>
 
-                <!-- EXANDABLE-->
+                <!-- METAINFORMATION-->
 
                 <div id="collapseExample">
                   <div class="card card-body">
-                    <p>
-                      Titel: XXX
-                      <br>
-                      Fotograf: XXX
-                      <br>
-                      Upplösning: XXX
-                      <br>
-                      Datum: XXX
-                      <br>
-                      Plats: XXX
-                      <br>
-                      Blabla: XXX
-                    </p>
+                    <p> <b> Metadata </b> </p>
+
+                    <div class="container" id="metaData">
+                      <p class="text">
+                        Titel: XXX
+                        <br>
+                        Fotograf: XXX
+                        <br>
+                        Upplösning: XXX
+                        <br>
+                        Datum: XXX
+                        <br>
+                        Plats: XXX
+                        <br>
+                        GPS-koordinater: XXX
+                      </p>
+                    </div>
                   </div>
                 </div>
-                
+
                 <!-- EXPANDABLE ENDS -->
 
-                
+
               </div>
 
             </div>
