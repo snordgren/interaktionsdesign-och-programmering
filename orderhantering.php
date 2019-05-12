@@ -17,8 +17,9 @@
 <body>
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
-  <?php include 'showImages.php'; ?>
-
+  <?php include 'sqlite.php'; ?>
+  <script type="text/javascript" src="showImages.js"></script>
+  <script type="text/javascript" src="order.js"></script>
 
   <!-- START of webbpage -->
 
@@ -44,15 +45,109 @@
     </div>
   </div>
 
+  <!-- FETCHING ITEMS IN CURRENT ORDER -->
+  <?php
+  $ItemsId = array();
+  $ItemsTitel = array();
 
-  <div class="container">
+  $sql1 = "SELECT * FROM OrderVagn;";
 
-    Hej o hå
+  $stmt1 = $db->prepare($sql1);
+  $stmt1->execute();
+
+  //Går igenom alla rows som quaryn gav en efter en
+  while ($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {
+
+    //Lägger varje rads orginalbild-id i arrayen
+    array_push($ItemsId, $row['fkey_Orginalbild']);
+    $imgId = $row['fkey_Orginalbild'];
+
+    $sql2 = "SELECT * FROM Orginalbild WHERE Orginalbild.Orginalbild_Id = ?;";
+
+    $stmt2 = $db->prepare($sql2);
+    $stmt2->execute([$imgId]);
+
+    while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+
+      array_push($ItemsTitel, $row2['Titel']);
+    }
+  }
+
+  ?>
+
+
+  <div class="currentOrder container card">
+
+    <h2>Pågående Order</h2>
+
+    <table class="table table-bordered table-striped table-editable ">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titel</th>
+          <th>Villkor</th>
+          <th>Pris</th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <?php
+        //Loopar igenom arrayerna och printar in i tabellen direkt
+        for ($x = 0; $x < Count($ItemsId); $x++) {
+
+          echo "<tr ><th class='table-info' width='5%'>";
+          echo $ItemsId[$x];
+          echo "</th><th>";
+          echo $ItemsTitel[$x];
+          echo "</th><th width='30%'>";
+          echo "<div class='card'><input type='text' > </input> </div>";
+          echo "</th><th width='10%'>";
+          echo "<input type='text' id='";
+          echo $ItemsId[$x];
+          echo "'> </input> ";
+          echo "</th><th width='15%'>";
+          echo "<div class='card'><button type='button' class='btn-taBortUrOrder' id='"; 
+          echo $ItemsId[$x];
+          echo "' onclick='removeFromOrder(this.id)'> Ta bort </button> </div>";
+          echo "</th></tr>";
+
+        };
+
+        ?>
+
+        
+
+      </tbody>
+    </table>
+
 
   </div>
 
 
+  <!-- BREAK -->
+  <br>
+  <!-- BREAK -->
+
+  <div class="container">
+
+      <button type="button" class="btn-orderhantering btn btn-primary float-right">Bekräfta Order</button>
+      <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()">Töm Order</button>
+    
+  </div>
+
+  <div class="container">
+        <button type="button" class="btn-orderhantering btn btn-primary">Historiska Ordrar</button>
+  </div>
+
+
   <!-- END of webbpage -->
+  <br>
+  <br>
+  <br>
+  <br>
+
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

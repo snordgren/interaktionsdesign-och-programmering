@@ -17,7 +17,7 @@
 <body>
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
-  <?php include 'showImages.php'; ?>
+  <script type="text/javascript" src="showImages.js"></script>
 
 
   <!-- START of webbpage -->

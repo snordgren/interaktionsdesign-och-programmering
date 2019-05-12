@@ -17,7 +17,7 @@
 <body>
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
-  <?php include 'showImages.php'; ?>
+  <script type="text/javascript" src="showImages.js"></script>
 
 
 
@@ -47,22 +47,18 @@
   </div>
 
   <div class="container">
-
+    <div class="d-flex justify-content-center"> <h2> Bildsök </h2> </div>
     <div class="jumbotron">
 
-      <h2> Sök: </h2>
 
-      <div class="row">
-
-
-        <div class="">
+        <div class="d-flex justify-content-center">
 
           <form action="">
             <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
-            <input type="text" class="txt1" id="txt1" size="50" placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">
+            <input type="text" class="txt1" id="txt1" size="50"  placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">
           </form>
 
-        </div>
+        
 
 
         <!-- row ends -->
@@ -74,7 +70,7 @@
     </div>
 
     <!-- I denna div så visas bild-resultaten -->
-    <div class="row" id="imgSuggestion">
+    <div class="row d-flex justify-content-center" id="imgSuggestion">
 
     </div>
 

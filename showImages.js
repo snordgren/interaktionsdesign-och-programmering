@@ -1,4 +1,4 @@
-<script>
+
   function showImages(str) {
 
     /* Om strängen är tom.. */
@@ -64,6 +64,8 @@
 
   }
 
+  //**************************************************************************************** */
+
   function showImageDetails(x) {
 
     var xhttp = new XMLHttpRequest();
@@ -96,7 +98,7 @@
           htmlImg += '.jpg" hspace="20" width="300" length="300">'
 
           //The information about the picture
-          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">ID: </th> <td>'
+          htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">ID: </th> <td id="IdInTable">'
           htmlText += ImageProperties[0];
           htmlText += '</td> </tr> <tr> <th scope="row">Upplösning: </th><td>'
           htmlText += ImageProperties[2];
@@ -118,6 +120,8 @@
   }
 
 
+//**************************************************************************************** */
+
 
   //ON HOVER, input=id
   function aFunctionOver(x) {
@@ -132,4 +136,3 @@
     document.getElementById(x).classList.remove('hoverShadow');
 
   }
-</script>

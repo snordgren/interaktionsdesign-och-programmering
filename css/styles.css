@@ -1,36 +1,46 @@
 .imgDiv {
-
   margin-bottom: 30px;
-  
 }
 
 .hoverShadow {
-  
   box-shadow: 10px 11px 23px -1px rgba(0,0,0,0.73);
-  
 }
 
 .btn-secondary {
-
   background-color:#7ABDFF;
   color:#FFFFFF;
+}
 
+.btn-orderhantering {
+  margin-right:15px;
+  margin-bottom:25px;
 }
 /* Nav bar */
 .navContainer {
   margin:auto;
 }
+
 /* Search box */
 .txt1  {
-
   margin: 10px;
   margin-bottom: 30px;
-  
+  padding:10px;
+  line-height: 25px;
+  font-size: 18px;
 }
+
 /* Header above Search box */
 .searchHeader {
   margin: 10px;
-  
+}
+
+.table th {
+  text-align: center;   
+}
+
+.btn-taBortUrOrder {
+  background-color:rgb(189, 0, 0);
+  color:#FFFFFF;
 }
 
 

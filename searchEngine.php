@@ -55,6 +55,10 @@ if ($count === 1) {
     $i = $qArray[0];
     //Lägger till en SQL-term för att funka med LIKE
     $i = $i . "%";
+    //$z = "'" . $qArray[0] . "'";
+
+    
+
 
     /*   $stmt1 = $pdo->query( "SELECT * 
                                 FROM orginalbild ob 
@@ -65,11 +69,11 @@ if ($count === 1) {
         */
 
     $sql1 = "SELECT * 
-                    FROM Orginalbild ob 
-                    JOIN Kategorirad kr on ob.Orginalbild_Id = kr.fkey_Orginalbild 
-                    JOIN Kategori k on kr.fkey_Kategori = k.Kategori_Id 
-                    WHERE k.KategoriNamn 
-                    LIKE  ?;";
+                FROM Orginalbild ob 
+                INNER JOIN Kategorirad kr on ob.Orginalbild_Id = kr.fkey_Orginalbild 
+                INNER JOIN Kategori on kr.fkey_Kategori = Kategori.Kategori_Id 
+                WHERE Kategori.KategoriNamn 
+                LIKE ?;";
 
     $stmt1 = $db->prepare($sql1);
     $stmt1->execute([$i]);
@@ -98,8 +102,10 @@ if ($count === 1) {
     // 2 sökord 
 } else if ($count === 2) {
 
+
     //Förbereder för SQL "LIKE"
     $i = $qArray[1] . "%";
+
 
     //Denna tar emot 2 ord. Endast det sista ordet ska behandlas med LIKE, medans orden innan är ===
     $sql2 = "SELECT Kategorirad.fkey_Orginalbild, Orginalbild.Antalkategorier
@@ -134,6 +140,9 @@ if ($count === 1) {
             array_push($usedBilder, $row['fkey_Orginalbild']);
         }
     }
+
+
+
 
     //3 sökord EJ TESTAD
 } else if ($count === 3) {

@@ -1,5 +1,9 @@
     <!-- MODAL CONTENT STARTS HERE -->
 
+    <!-- Inkluderar projektfiler-->
+    <script type="text/javascript" src="Order.js"></script>
+
+
     <div class="modal fade text-center" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -18,7 +22,7 @@
 
               <div class="col-sm-6">
 
-                <div id="imgInfo"> </div>
+                <div id="imgInfo" class="card"> </div>
 
                 <!-- EXANDABLE-->
 
@@ -52,7 +56,8 @@
           <div class="modal-footer">
 
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-            <button type="button" class="btn btn-primary">Lägg Till i Order</button>
+            <!-- Vid klick så körs funktion från JS fil -->
+            <button type="button" class="btn btn-primary" onclick="addToOrder()">Lägg Till i Order</button>
 
           </div>
         </div>
