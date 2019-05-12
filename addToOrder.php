@@ -22,7 +22,7 @@ $response = "1";
 
 if ($check >= 1) {
 
-    $response = "FINNS REDAN I ORDER";
+    $response = "ERROR - FINNS REDAN I ORDER";
     
    
 } else { 

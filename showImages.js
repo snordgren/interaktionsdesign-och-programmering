@@ -111,7 +111,7 @@
           htmlText += ImageProperties[0];
           htmlText += '</td> </tr> <tr> <th scope="row">Upplösning: </th><td>'
           htmlText += ImageProperties[3];
-          htmlText += '</td> </tr><tr><th scope="row">Status: </th><td>'
+          htmlText += '</td> </tr><tr><th scope="row">Status: </th><td id="statusInTable">'
           htmlText += $statusString;
           htmlText += '</td></tr></tbody></table> </div>'
         }
