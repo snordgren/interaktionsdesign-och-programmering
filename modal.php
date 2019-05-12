@@ -26,11 +26,11 @@
                 <!-- BESKRIVING AV BILD -->
                 <div class="bildBeskrivning card card-body">
                   <p> <b> Beskrivning </b> </p>
-                  <p class="text"> THis is a picture of a dog that was taken in the beautiful city of gangangang </p>
+                  <p class="text-left" id="bildBeskrivning"> Blablablabla </p>
                 </div>
                 <!-- KNAPP FÖR VARIANTER -->
                 <div>
-                  <button type="button" class="btn-showVariants btn btn-secondary float-left">Visa varianter</button>
+                  <button type="button" class="btn-showVariants btn btn-secondary float-left">Visa Varianter Av Denna Bild</button>
                 </div>
 
               </div>
@@ -45,20 +45,17 @@
                   <div class="card card-body">
                     <p> <b> Metadata </b> </p>
 
-                    <div class="container" id="metaData">
-                      <p class="text">
-                        Titel: XXX
-                        <br>
-                        Fotograf: XXX
-                        <br>
-                        Upplösning: XXX
-                        <br>
-                        Datum: XXX
-                        <br>
-                        Plats: XXX
-                        <br>
-                        GPS-koordinater: XXX
-                      </p>
+                    <div class="metaData container" id="metaData">
+                      <div class="row"> <div class="col-6"> <p class="text"> <b> Titel: </b> </p> </div> <div class="col-6"> <p id="metaTitel">-</p> </div> </div>
+                       
+                      <div class="row"> <div class="col-sm-6"> <p class="text"> <b> Fotograf: </b> </p> </div> <div class="col-sm-6"> <p id="metaFotograf">-</p>  </div> </div>
+                        
+                      <div class="row"> <div class="col-sm-6"> <p class="text"> <b> Datum: </b> </p> </div> <div class="col-sm-6"> <p id="metaDatum">-</p> </div> </div>
+                        
+                      <div class="row"> <div class="col-sm-6"> <p class="text"> <b> Plats: </b> </p> </div> <div class="col-sm-6"> <p id="metaPlats">-</p> </div> </div>
+                        
+                      <div class="row"> <div class="col-sm-6"> <p class="text"> <b> GPS-koord: </b> </p> </div> <div class="col-sm-6"><p id="metaGPS">-</p> </div> </div>
+                      
                     </div>
                   </div>
                 </div>

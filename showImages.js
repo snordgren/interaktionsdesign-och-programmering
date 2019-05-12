@@ -87,6 +87,15 @@
         var htmlImg = "";
         var htmlText = "";
 
+        //Ändrar status från boolean till text
+        $statusString = "";
+        if(ImageProperties[4] == 0){
+          $statusString = "Ägd"
+        }else{
+          $statusString = "Lånad" + "(" + ImageProperties[5] + "ggr)";
+        }
+        
+
         if (x === "") {
 
           htmlText = "No results found.."
@@ -101,15 +110,24 @@
           htmlText = '<div class=container> <table class="table"> <thead> <tr> <th scope="col" bgcolor="#7ABDFF"> </th> <th scope="col" bgcolor="#7ABDFF"> </th> </tr> </thead> <tbody> <tr> <th scope="row">ID: </th> <td id="IdInTable">'
           htmlText += ImageProperties[0];
           htmlText += '</td> </tr> <tr> <th scope="row">Upplösning: </th><td>'
-          htmlText += ImageProperties[2];
+          htmlText += ImageProperties[3];
           htmlText += '</td> </tr><tr><th scope="row">Status: </th><td>'
-          htmlText += 'Ägd eller lånad';
+          htmlText += $statusString;
           htmlText += '</td></tr></tbody></table> </div>'
         }
+
 
         /* Manipulerar element i modalen */
         document.getElementById("imgDetails").innerHTML = htmlImg;
         document.getElementById("imgInfo").innerHTML = htmlText;
+        document.getElementById("imgModalLabel").innerHTML = ImageProperties[1];
+        document.getElementById("metaTitel").innerHTML = ImageProperties[1];
+        document.getElementById("metaFotograf").innerHTML = ImageProperties[6];
+        document.getElementById("metaDatum").innerHTML = ImageProperties[7];
+        document.getElementById("metaPlats").innerHTML = ImageProperties[8];
+        document.getElementById("metaGPS").innerHTML = ImageProperties[9];
+        document.getElementById("bildBeskrivning").innerHTML = ImageProperties[10];
+        
 
       }
     };

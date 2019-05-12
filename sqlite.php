@@ -17,14 +17,14 @@ try {
       if ($check != "Orginalbild") {
 
             //create the database
-            $db->exec("CREATE TABLE Orginalbild (Orginalbild_Id INTEGER, Titel TEXT, AntalKategorier INTEGER, Upplösning TEXT)");
+            $db->exec("CREATE TABLE Orginalbild (Orginalbild_Id INTEGER, Titel TEXT, AntalKategorier INTEGER, Upplösning TEXT, BildStatus INTEGER, AntalAnvändningar INTEGER, Fotograf TEXT, Datum TEXT, Plats TEXT, GPS TEXT, Beskrivning TEXT)");
             $db->exec("CREATE TABLE Kategori (Kategori_Id INTEGER, KategoriNamn TEXT)");
             $db->exec("CREATE TABLE Kategorirad (Kategorirad_Id INTEGER, fkey_Orginalbild INTEGER, fkey_Kategori INTEGER)");
             $db->exec("CREATE TABLE OrderVagn (fkey_Orginalbild INTEGER)");
 
             //INSERT INTO ORGINALBILD
-            $db->exec("INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning) VALUES (1, 'Hund 1', 1, '1920 x 1080');" .
-                  "INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning) VALUES (2 , 'Hund 2', 1, '1920 x 1080'); " .
+            $db->exec("INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning, BildStatus, AntalAnvändningar, Fotograf, Datum, Plats, GPS, Beskrivning) VALUES (1, 'Hund 1', 1, '1920 x 1080', 0, 0, 'Jörgen N','2019-03-22', 'Helsingborg', '59.3124 | 17.9124', 'Detta är en bild på en hund tagen av Jörgen i Helsingborg.');" .
+                  "INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning, BildStatus, AntalAnvändningar, Fotograf, Datum, Plats, GPS, Beskrivning) VALUES (2 , 'Hund 2', 1, '1920 x 1080', 1, 3, 'Samuel H', '2018-07-12', 'Botkyrka', '59.3124 | 17.9124', 'Detta är en bild på en hund tagen i Botkyrka av Samuel H.'); " .
                   "INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning) VALUES (3, 'Hund 3', 1, '3840 × 2160');" .
                   "INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning) VALUES (4, 'Hund 4', 1, '3840 × 2160');" .
                   "INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning) VALUES (5, 'Katt 1', 1, '3840 × 2160');" .
