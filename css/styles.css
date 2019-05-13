@@ -63,7 +63,33 @@
 .cardimg {
 
   padding: 0px;
-  
+
+}
+
+
+.txt4 {
+  margin-left: 9em;
+}
+
+.minInfo label {
+  position:absolute;
+}
+.minInfo textArea {
+  margin-left: 9em;
+  width: 300px;
+  height: 100px;
+}
+.minInfo select {
+  margin-left: 9em;
+}
+
+.txt9 {
+  margin-left: 3em;
+}
+.txt5{
+  background-color:lightgrey;
+  margin-left: 9em;
+
 
 }
 
