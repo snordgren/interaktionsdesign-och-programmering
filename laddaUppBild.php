@@ -57,6 +57,13 @@
     </div>
 
     <div class="col-12 mt-2">
+      <select class="custom-select col-12" name="image-ownership">
+        <option value="owned" form="img-upload-form" selected>Ägd</option>
+        <option value="not-owned" form="img-upload-form">Ej ägd</option>
+      </select>
+    </div>
+
+    <div class="col-12 mt-2">
       <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
       <input type="file" name="pictures" accept="image/*" required />
       <input class="btn btn-primary col-12 mt-2" type="submit" value="Ladda upp" />
@@ -74,6 +81,7 @@
         echo $upload->getFullPath();
         echo $_POST['image-title'];
         echo $_POST['image-description'];
+        echo $_POST['image-ownership'];
       } else {
         echo $image->getError();
       }
