@@ -75,78 +75,103 @@
 
   ?>
 
-
-  <div class="currentOrder container card">
+  <div class="container jumbotron">
 
     <h2>Pågående Order</h2>
 
-    <table class="table table-bordered table-striped table-editable ">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Titel</th>
-          <th>Villkor</th>
-          <th>Pris</th>
-          <th></th>
+    <div class="currentOrder container card cardimg " id="orderTable">
 
-        </tr>
-      </thead>
-      <tbody>
+      <table class="table table-bordered table-striped table-editable ">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Villkor</th>
+            <th>Pris</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
 
-        <?php
-        //Loopar igenom arrayerna och printar in i tabellen direkt
-        for ($x = 0; $x < Count($ItemsId); $x++) {
+          <?php
+          //Loopar igenom arrayerna och printar in i tabellen direkt
+          for ($x = 0; $x < Count($ItemsId); $x++) {
 
-          echo "<tr ><th class='table-info' width='5%'>";
-          echo $ItemsId[$x];
-          echo "</th><th>";
-          echo $ItemsTitel[$x];
-          echo "</th><th width='30%'>";
-          echo "<div class='card'><input type='text' > </input> </div>";
-          echo "</th><th width='10%'>";
-          echo "<input type='text' id='";
-          echo $ItemsId[$x];
-          echo "'> </input> ";
-          echo "</th><th width='15%'>";
-          echo "<div class='card'><button type='button' class='btn-taBortUrOrder' id='"; 
-          echo $ItemsId[$x];
-          echo "' onclick='removeFromOrder(this.id)'> Ta bort </button> </div>";
-          echo "</th></tr>";
+            echo "<tr ><th class='table-info' width='5%'>";
+            echo $ItemsId[$x];
+            echo "</th><th>";
+            echo $ItemsTitel[$x];
+            echo "</th><th width='30%'>";
+            echo "<div class='card'><input type='text' > </input> </div>";
+            echo "</th><th width='10%'>";
+            echo "<input type='text' id='";
+            echo $ItemsId[$x];
+            echo "'> </input> ";
+            echo "</th><th width='15%'>";
+            echo "<div class='card'><button type='button' class='btn-taBortUrOrder' id='";
+            echo $ItemsId[$x];
+            echo "' onclick='removeFromOrder(this.id)'> Ta bort </button> </div>";
+            echo "</th></tr>";
+          };
 
-        };
+          ?>
 
-        ?>
+        </tbody>
+      </table>
 
-        
+    </div>
 
-      </tbody>
-    </table>
+    <!-- BREAK -->
+    <br>
+    <!-- BREAK -->
 
-
-  </div>
-
-
-  <!-- BREAK -->
-  <br>
-  <!-- BREAK -->
-
-  <div class="container">
+    <div class="container" id="orderButtons">
 
       <button type="button" class="btn-orderhantering btn btn-primary float-right">Bekräfta Order</button>
       <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()">Töm Order</button>
-    
+
+    </div>
+
+    <div class="container" id="btnKundUppgifter">
+      <button type="button" class="btn-orderhantering btn btn-primary">Visa/Lägg Till Kunduppgifter</button>
+    </div>
+
+
+
+    <!-- DÖLJER OM TOM -->
+    <script>
+            var count = <?php echo Count($ItemsId);?>;
+
+            if (count == 0) {
+
+              document.getElementById("orderTable").innerHTML = "<b> Inga bilder tillagda </b>";
+
+              document.getElementById("orderButtons").innerHTML = "";
+
+              document.getElementById("btnKundUppgifter").innerHTML = "";
+
+            }
+    </script>
+
+
   </div>
 
-  <div class="container">
-        <button type="button" class="btn-orderhantering btn btn-primary">Historiska Ordrar</button>
+
+
+  <div class="container jumbotron">
+    <div class="container">
+      <button type="button" class="btn-orderhantering btn btn-secondary">Visa Historiska Ordrar</button>
+    </div>
+
+    <div class="container">
+      <button type="button" class="btn-orderhantering btn btn-secondary">Sök Order</button>
+    </div>
   </div>
+
 
 
   <!-- END of webbpage -->
-  <br>
-  <br>
-  <br>
-  <br>
+
 
 
 

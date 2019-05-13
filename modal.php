@@ -121,7 +121,7 @@
 
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
             <!-- Vid klick så körs funktion från JS fil -->
-            <button type="button" class="btn btn-primary" onclick="addToOrder()" data-dismiss="modal">Lägg Till i Order</button>
+            <button type="button" class="btn btn-primary" onclick="addToOrder()">Lägg Till i Order</button>
 
           </div>
         </div>

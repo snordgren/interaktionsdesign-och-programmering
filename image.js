@@ -103,7 +103,7 @@ function showImageDetails(x) {
       if (ImageProperties[4] == 0) {
         statusString = "Ägd";
       } else {
-        statusString = "Lånad" + "(" + ImageProperties[5] + "ggr)";
+        statusString = "Lånad" + " (" + ImageProperties[5] + " gånger kvar)";
       }
 
       if (x === "") {
