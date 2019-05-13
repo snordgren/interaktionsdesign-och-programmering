@@ -24,7 +24,7 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
+  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
@@ -102,7 +102,7 @@
             echo "</th><th>";
             echo $ItemsTitel[$x];
             echo "</th><th width='30%'>";
-            echo "<div class='card'><input type='text' > </input> </div>";
+            echo "<div class='card'><input type='text' placeholder='Köpvillkor (Rättigheter)'> </input> </div>";
             echo "</th><th width='10%'>";
             echo "<input type='text' id='";
             echo $ItemsId[$x];

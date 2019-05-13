@@ -24,7 +24,7 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
+  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
@@ -46,7 +46,7 @@
   </div>
 
 
-  <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
+  <form action="./handleUpload.php" method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
 
     <div class="col-12">
       <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
@@ -57,10 +57,14 @@
     </div>
 
     <div class="col-12 mt-2">
-      <select class="custom-select col-12" name="image-ownership">
+      <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
         <option value="owned" form="img-upload-form" selected>Ägd</option>
         <option value="not-owned" form="img-upload-form">Ej ägd</option>
       </select>
+    </div>
+    <!-- Antal gånger bilden får användas av Bothniabladet -->
+    <div class="col-12 mt-2" id ="antalGångerDiv">
+    <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required /> 
     </div>
 
     <div class="col-12 mt-2">
@@ -82,6 +86,7 @@
         echo $_POST['image-title'];
         echo $_POST['image-description'];
         echo $_POST['image-ownership'];
+        echo $_POST['usage-number'];
       } else {
         echo $image->getError();
       }
@@ -89,6 +94,27 @@
     ?>
 
   </form>
+
+
+  <script>
+
+    //FUNKTION SOM GÖMMER OCH VISAR INPUT FÖR ANTAL GÅNGER BILDEN FÅR ANVÄNDAS - beror på om den är ägd eller inte.
+    function onStatusChange() {
+
+      if (document.getElementById('select-ownership').value == "not-owned") {
+
+        document.getElementById('antalGångerDiv').innerHTML = "<label for='Antalggr'> Användningar: </label> <input type='text' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' Style='text-align: center;' required />";
+        document.getElementById("antalGångerInput").type = "text";
+        
+
+      } else if (document.getElementById('select-ownership').value == "owned") {
+
+        
+        document.getElementById('antalGångerDiv').innerHTML = "<input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />";
+      }
+    }
+
+  </script>
 
 
   <!-- END of webbpage -->

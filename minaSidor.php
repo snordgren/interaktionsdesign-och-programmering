@@ -23,7 +23,7 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> &nbsp Bothniabladet </h1>
+  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
