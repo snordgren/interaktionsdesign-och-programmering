@@ -46,17 +46,25 @@
   </div>
 
 
-  <div class="container">
+  <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
 
-    <form method="POST" enctype="multipart/form-data">
+    <div class="col-12">
+      <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
+    </div>
+
+    <div class="col-12 mt-2">
+      <textarea form="img-upload-form" class="form-control rounded-0 col-12" placeholder="Beskrivning..." name="image-description" required></textarea>
+    </div>
+
+    <div class="col-12 mt-2">
       <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
-      <input type="file" name="pictures" accept="image/*" />
-      <input type="submit" value="upload" />
-    </form>
+      <input type="file" name="pictures" accept="image/*" required />
+      <input class="btn btn-primary col-12 mt-2" type="submit" value="Ladda upp" />
+    </div>
 
     <?php
     $image = new Bulletproof\Image($_FILES);
-    $image->setLocation('./img');
+    $image->setLocation('./img/uploaded');
     $image->setSize(0, 100000000);
 
     if ($image["pictures"]) {
@@ -64,13 +72,15 @@
 
       if ($upload) {
         echo $upload->getFullPath();
+        echo $_POST['image-title'];
+        echo $_POST['image-description'];
       } else {
         echo $image->getError();
       }
     }
     ?>
 
-  </div>
+  </form>
 
 
   <!-- END of webbpage -->
