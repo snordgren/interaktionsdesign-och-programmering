@@ -51,15 +51,24 @@
 }
 
 .bildBeskrivning {
-  margin:15px;
+
+  margin-top: 15px;
+}
+
+.infoDiv {
+
+  margin-top: 15px;
+}
+
+.cardimg {
+
+  padding: 0px;
   
-}
-
-.metaData {
-
-  padding:10px;
 
 }
+
+
+
 
 
 

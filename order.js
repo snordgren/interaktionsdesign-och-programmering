@@ -1,3 +1,4 @@
+
 //********************************************AddToOrder******************************************** */
 function addToOrder(){
 
@@ -40,6 +41,7 @@ function addToOrder(){
   }else{
 
     alert("ERROR - LÅNAD BILD");
+    
 
   }
  

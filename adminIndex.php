@@ -58,11 +58,13 @@
 
         <form action="">
           <!-- Vid "onkeyup" så körs funktionen showImages med inparamentern = värdet man skrivit -->
-          <input type="text" class="txt1" id="txt1" size="50" placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">
+          <input type="text" class="txt1 md-autocomplete" id="txt1" size="50" placeholder="Skriv sökord separerat med mellanslag.." onkeyup="showImages(this.value)">         
         </form>
 
 
       </div>
+
+      <div class="d-flex justify-content-center"> <p> <b> Top results: </p> </b> &nbsp; <p id="txtSuggestion"> </p> </div>
 
       <!-- Jumbotron ends -->
     </div>

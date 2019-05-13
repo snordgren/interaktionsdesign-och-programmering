@@ -21,6 +21,8 @@ try {
             $db->exec("CREATE TABLE Kategori (Kategori_Id INTEGER, KategoriNamn TEXT)");
             $db->exec("CREATE TABLE Kategorirad (Kategorirad_Id INTEGER, fkey_Orginalbild INTEGER, fkey_Kategori INTEGER)");
             $db->exec("CREATE TABLE OrderVagn (fkey_Orginalbild INTEGER)");
+            $db->exec("CREATE TABLE Nyckelord (Ord TEXT)");
+            $db->exec("CREATE TABLE Nyckelordrad (fkey_Orginalbild INTEGER, fkey_Nyckelord INTEGER)");
 
             //INSERT INTO ORGINALBILD
             $db->exec("INSERT INTO Orginalbild (Orginalbild_Id, Titel, AntalKategorier, Upplösning, BildStatus, AntalAnvändningar, Fotograf, Datum, Plats, GPS, Beskrivning) VALUES (1, 'Hund 1', 1, '1920 x 1080', 0, 0, 'Jörgen N','2019-03-22', 'Helsingborg', '59.3124 | 17.9124', 'Detta är en bild på en hund tagen av Jörgen i Helsingborg.');" .
@@ -52,9 +54,19 @@ try {
                   "INSERT INTO Kategorirad (Kategorirad_Id, fkey_Orginalbild, fKey_Kategori) VALUES (11, 10, 1);" .
                   "INSERT INTO Kategorirad (Kategorirad_Id, fkey_Orginalbild, fKey_Kategori) VALUES (12, 10, 2);");
 
+            //INSERT INTO Nyckelord
+            $db->exec("INSERT INTO Nyckelord (Ord) VALUES ('Helsingborg');" .
+                  "INSERT INTO Nyckelord (Ord) VALUES ('Jörgen');" .
+                  "INSERT INTO Nyckelord (Ord) VALUES ('1920x1080p');");
+
+            //INSERT INTO Nyckelordrad
+            $db->exec("INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord) VALUES (1, 1);" .
+            "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord) VALUES (1, 2);" .
+            "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord) VALUES (1, 3);" .
+            "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord) VALUES (2, 3);");
+
             //INSERT INTO OrderVagn
             //$db->exec("INSERT INTO OrderVagn (fkey_Orginalbild) VALUES (4);");
-
 
             /*
             //FOR TESTING 
