@@ -1,3 +1,4 @@
+<?php require_once 'vendor/autoload.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +48,27 @@
 
   <div class="container">
 
-    Hej igen
+    <form method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+      <input type="file" name="pictures" accept="image/*" />
+      <input type="submit" value="upload" />
+    </form>
+
+    <?php
+    $image = new Bulletproof\Image($_FILES);
+    $image->setLocation('./img');
+    $image->setSize(0, 100000000);
+
+    if ($image["pictures"]) {
+      $upload = $image->upload();
+
+      if ($upload) {
+        echo $upload->getFullPath();
+      } else {
+        echo $image->getError();
+      }
+    }
+    ?>
 
   </div>
 
