@@ -91,6 +91,39 @@
 
 }
 
+.txt2{
+  margin-left: 9em;
+}
+
+.emailInput label {
+  position:absolute;
+}
+
+.emailInput textarea {
+  margin-left: 9em;
+   width: 300px;
+  height: 100px;
+}
+
+.emailInput select {
+  margin-left: 9em;
+}
+
+.tipsaInput label{
+  position:absolute;
+  
+}
+.tipsaInput textarea{
+  margin-left: 9em;
+  width: 210px;
+  height: 150px;
+}
+
+.txt8{
+   margin-left: 9em;
+   width: 210px;
+}
+
 
 
 

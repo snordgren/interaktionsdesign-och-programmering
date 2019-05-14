@@ -12,6 +12,23 @@
   <!-- <link rel="stylesheet" href="modalStyles.css"> -->
   <link rel="stylesheet" href="./css/styles.css">
 
+  <script>
+    function kontaktInfo() {
+      var forNamn = document.getElementById("forNamnID").value;
+      var efterNamn = document.getElementById("efterNamnID").value;
+      var arende = document.getElementById("ärende").value;
+      var email = document.getElementById("eMailID").value;
+      var telefonNummer = document.getElementById("telefonNummerID").value;
+      var beskrivning = document.getElementById("beskrivningID").value;
+      if (forNamn !== "" && efterNamn !== "" && arende !== "" && email !== "" && beskrivning !== "") {
+
+        alert("Ärende registrerat");
+      } else {
+        alert("Fyll i alla nödvändiga fält")
+      }
+    }
+  </script>
+
 </head>
 
 <body>
@@ -24,7 +41,9 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
+    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
+      <p class="text-center"> Bothniabladet Bildbyrå <p>
+    </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
@@ -47,13 +66,55 @@
   </div>
 
   <div class="container">
+    <div class="jumbotron">
+      <h3 class="searchHeader"> Kontaktformulär </h3> <br>
 
-    <div class="d-flex justify-content-center"> Kontakta oss body - - email och telNr (Kanske här som man kan då köpa bilder via email. </div>
+      <div class="emailInput ">
+
+        <form action="" method="">
+
+          <label> Förnamn:* </label>
+          <!-- definierar label för att kunna hantera de på ett lätt sätt i css.-->
+
+          <input id="forNamnID" type="text" class="txt2" placeholder="Ditt Förnamn"> <br> <br>
+          <label> Efternamn:* </label>
+          <input id="efterNamnID" type="text" class="txt2" placeholder="Ditt Efternamn"> <br> <br>
+
+          <label for="ärende">Typ av Ärende</label>
+          <select id="ärende" name="ärende">
+            <option value="köp av bild">Köp av Bild</option>
+            <option value="support">Support</option>
+            <option value="övrigt">Övrigt</option>
+          </select> <br> <br>
+
+          <label> Email:* </label>
+
+          <input id="eMailID" type="text" class="txt2" placeholder="Din Email"> <br><br>
+
+
+          <label> Telefonnummer: </label>
+          <input id="telefonNummerID" type="text" class="txt2" placeholder="Ditt telefonnummer"> <br><br>
+
+          <label> Beskrivning:* </label>
+          <textarea id="beskrivningID" value="">  </textarea> <br><br>
+
+        </form>
+      </div>
+
+      <button id="btn1" class="btn btn-secondary btn-sm " style="width: 100px; height: 50px;" onclick="kontaktInfo()">
+      Skicka Ärende
+    </button>
+
+
+    </div>
+
+  </div>
 
 
 
 
-    <!-- Container ends -->
+
+  <!-- Container ends -->
   </div>
 
 
