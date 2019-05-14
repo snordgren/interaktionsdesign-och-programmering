@@ -19,21 +19,22 @@
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
   <?php include 'sqlite.php'; ?>
+  
   <script type="text/javascript" src="image.js"></script>
 
   <script>
     //FUNKTION SOM GÖMMER OCH VISAR INPUT FÖR ANTAL GÅNGER BILDEN FÅR ANVÄNDAS - beror på om den är ägd eller inte.
     function onStatusChange() {
 
-      if (document.getElementById('select-ownership').value == "not-owned") {
+      if (document.getElementById('select-ownership').value == "1") {
 
         document.getElementById('antalGångerDiv').innerHTML = "<label for='Antalggr'> Användningar: </label> <input type='text' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' Style='text-align: center;' required />";
         document.getElementById("antalGångerInput").type = "text";
 
-      } else if (document.getElementById('select-ownership').value == "owned") {
+      } else if (document.getElementById('select-ownership').value == "0") {
 
         document.getElementById('antalGångerDiv').innerHTML = "<input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />";
-      
+
       }
     }
   </script>
@@ -78,8 +79,8 @@
 
     <div class="col-12 mt-2">
       <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
-        <option value="owned" form="img-upload-form" selected>Ägd</option>
-        <option value="not-owned" form="img-upload-form">Ej ägd</option>
+        <option value="0" form="img-upload-form" selected>Ägd</option>
+        <option value="1" form="img-upload-form">Ej ägd</option>
       </select>
     </div>
     <!-- Antal gånger bilden får användas av Bothniabladet -->
@@ -96,12 +97,12 @@
     <?php
     //Genererar ett eget random namn
     $n = rand(1, 1000000);
-    $name = "IMG-" . $n;
+    $Name = "IMG-" . $n;
 
     $image = new Bulletproof\Image($_FILES);
     $image->setLocation('./img/uploaded');
     $image->setSize(0, 100000000);
-    $image->setName($name);
+    $image->setName($Name);
 
     if ($image["pictures"]) {
       $upload = $image->upload();
@@ -122,17 +123,45 @@
         //**********INSERTS******************* */
 
         //(1)Insert Orginalbild
+        $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
+                  VALUES (?, ?, ?, ?)";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$titel, $desc, $ownship, $usgNr]);
+
+        //**********GET ID AND RENAME******************* */
+
+        $imgId = "";
+
+        //$db -> SELECT highest ID (most recent) in Orginalbild
+
+        $sql = "SELECT MAX(rowid) AS MaxValue
+                  FROM Orginalbild";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        //Om bilden redan finns så kommer 
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          $imgId = $row['MaxValue'];
+        }
+
+        //rename ($name, To highest ID);
+        $oldName = "./img/uploaded/" . $Name . ".jpeg";
+        $newName = "./img/" . $imgId . ".jpeg";
+        rename($oldName, $newName);
+
 
         //(2)Insert Kategorirad (Koppla till kategorier)
+        $sql = "INSERT INTO Kategorirad (fkey_Orginalbild, fkey_Kategori) 
+                  VALUES (?, ?)";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$imgId, 1]);
 
         //(2)Insert Nyckelordrad (Koppla till kategorier)
 
 
-        //**********GET ID AND RENAME******************* */
 
-        //$db -> SELECT highest ID in Orginalbild
-
-        //rename ($name, To highest ID);
 
       } else {
         echo $image->getError();

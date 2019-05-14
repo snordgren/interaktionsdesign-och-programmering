@@ -106,11 +106,7 @@ function resetOrder() {
       
           if (this.readyState == 4 && this.status == 200) {
       
-            
-      
-      
-      
-      
+  
             //Behövs egentligen ingen "respons" men detta är bevis att servern lagt till ordern 
             var x = this.responseText;
       

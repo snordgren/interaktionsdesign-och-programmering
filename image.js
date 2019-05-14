@@ -48,7 +48,7 @@ function showImages(str) {
           htmlText += array[i];
           htmlText += ' href= "" onclick="showImageDetails(this.id)" data-toggle="modal" data-target="#imgModal"> <img class="img-thumbnail" src="./img/';
           htmlText += array[i];
-          htmlText += '.jpg" id="test2';
+          htmlText += '.jpeg" id="test2';
           htmlText += array[i];
           htmlText += '" width="345" length="345" onmouseover="aFunctionOver(this.id)" onmouseout="aFunctionOut(this.id)"> </a> </div>';
 
@@ -114,7 +114,7 @@ function showImageDetails(x) {
         //THE IMAGE
         htmlImg = '<div class="card-body cardimg"><img class="rounded img-fluid border" src="./img/'
         htmlImg += x;
-        htmlImg += '.jpg"> </div>'
+        htmlImg += '.jpeg"> </div>'
 
         //INFO TO THE RIGHT OF THE IMAGE
         htmlText = ' <table class="table">  <tbody> <tr> <th scope="row">ID: </th> <td id="IdInTable">'

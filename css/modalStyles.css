@@ -1,9 +1,11 @@
-/* Detta används ej, men kan användas senare.. */
 
-.modal.fade .modal-dialog {
-  transform: translate3d(0, 30vh, 0);
+
+.modal.fade .confirmD {
+  transform: translate3d(0, 20vh, 0);
 }
 
-.modal.in .modal-dialog {
+.modal.in .confirmD {
   transform: translate3d(0, 0, 0);
 }
+
+

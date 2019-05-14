@@ -10,8 +10,6 @@ $requestId = $_REQUEST["requestId"];
 //ADD TO ORDER
 if ($requestId == "addToOrder") {
 
-
-
     //Hämtar imdID
     $imgId = $_REQUEST["q"];
     $response = "1";

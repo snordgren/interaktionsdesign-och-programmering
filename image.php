@@ -79,14 +79,14 @@ if ($requestId == "showImages") {
                                 LIKE '$i%'; ");                               
         */
 
-        $sql1 = "SELECT * 
+        $sql1 = "SELECT ob.rowid, * 
                 FROM Orginalbild ob 
-                INNER JOIN Kategorirad kr on ob.Orginalbild_Id = kr.fkey_Orginalbild 
+                INNER JOIN Kategorirad kr on ob.rowid = kr.fkey_Orginalbild 
                 INNER JOIN Kategori on kr.fkey_Kategori = Kategori.Kategori_Id 
                 WHERE Kategori.KategoriNamn 
                 LIKE ?;";
 
-        $sql2 = "SELECT * 
+        $sql2 = "SELECT ob.rowid, * 
                 FROM Orginalbild ob 
                 INNER JOIN Nyckelordrad nr on ob.Orginalbild_Id = nr.fkey_Orginalbild 
                 INNER JOIN Nyckelord n on nr.fkey_Nyckelord = n.rowid
@@ -100,19 +100,19 @@ if ($requestId == "showImages") {
         while ($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {
 
             //Kollar ifall bilden (ID) redan blivit tillagd
-            if (($key = array_search($row['Orginalbild_Id'], $usedBilder)) == false) {
+            if (($key = array_search($row['rowid'], $usedBilder)) == false) {
 
                 //Om svars-stängen är tom så läggs bara ordet till..
                 if ($response === "") {
-                    $response = $row['Orginalbild_Id'];
+                    $response = $row['rowid'];
 
                     //..annars så läggs ett , till innan ordet.
                 } else {
-                    $response .= "," . $row['Orginalbild_Id'];
+                    $response .= "," . $row['rowid'];
                 }
 
                 //Sparar bilden som lades till i listan av usedBilder
-                array_push($usedBilder, $row['Orginalbild_Id']);
+                array_push($usedBilder, $row['rowid']);
             }
         }
 
@@ -248,7 +248,7 @@ if ($requestId == "showImages") {
 
 
 
-    $sql1 = "SELECT rowid, * FROM Orginalbild WHERE Orginalbild.orginalbild_Id = ?;";
+    $sql1 = "SELECT rowid, * FROM Orginalbild WHERE Orginalbild.rowid = ?;";
 
     $stmt1 = $db->prepare($sql1);
     $stmt1->execute([$ID]);
