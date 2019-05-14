@@ -2,7 +2,7 @@
 
     <!-- Inkluderar projektfiler-->
     <script type="text/javascript" src="order.js"></script>
-    <?php include 'confirmModal.php'; ?>
+    <?php include 'modalConfirm.php'; ?>
 
 
     <div class="modal fade text-center" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

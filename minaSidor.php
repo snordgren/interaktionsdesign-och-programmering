@@ -24,29 +24,29 @@
 
   <div class="jumbotron jumbotron-fluid">
     <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
-      <p class="text-center"> Bothniabladet Bildbyrå <p>
+      <p class="text-center"> Bothniabladets Bildbyrå <p>
     </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="./adminIndex.php">Hem</a>
+      <li class="nav-item">
+          <a class="nav-link" href="./adminIndex.php"><b>Sök</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
+          <a class="nav-link" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
+          <a class="nav-link" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./minaSidor.php">Mina Sidor</a>
+          <a class="nav-link active" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
       </ul>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container col-lg-4 col-md-6 col-sm-12">
     <div class="jumbotron">
       <h4 class="searchHeader"> Min Profil </h4> <br>
 

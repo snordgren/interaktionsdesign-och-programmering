@@ -12,6 +12,15 @@
   <!-- <link rel="stylesheet" href="modalStyles.css"> -->
   <link rel="stylesheet" href="./css/styles.css">
 
+
+</head>
+
+<body>
+
+  <!-- Inkluderar projektfiler -->
+  <?php include 'modal.php'; ?>
+  <script type="text/javascript" src="image.js"></script>
+
   <script>
     function kontaktInfo() {
       var forNamn = document.getElementById("forNamnID").value;
@@ -29,35 +38,28 @@
     }
   </script>
 
-</head>
-
-<body>
-  <!-- Inkluderar projektfiler -->
-  <?php include 'modal.php'; ?>
-  <script type="text/javascript" src="image.js"></script>
-
-
 
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
     <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
-      <p class="text-center"> Bothniabladet Bildbyrå <p>
+      <p class="text-center"> Bothniabladets Bildbyrå <p>
     </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="./index.php">Hem</a>
+
+      <li class="nav-item">
+          <a class="nav-link" href="./index.php"><b>Hem</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./tipsa.php">Tipsa</a>
+          <a class="nav-link" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./kontaktaOss.php">Kontakta Oss</a>
+          <a class="nav-link active" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./loggaIn.php">Logga In</a>
+          <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
       </ul>
@@ -65,56 +67,85 @@
 
   </div>
 
-  <div class="container">
-    <div class="jumbotron">
-      <h3 class="searchHeader"> Kontaktformulär </h3> <br>
-
-      <div class="emailInput ">
-
-        <form action="" method="">
-
-          <label> Förnamn:* </label>
-          <!-- definierar label för att kunna hantera de på ett lätt sätt i css.-->
-
-          <input id="forNamnID" type="text" class="txt2" placeholder="Ditt Förnamn"> <br> <br>
-          <label> Efternamn:* </label>
-          <input id="efterNamnID" type="text" class="txt2" placeholder="Ditt Efternamn"> <br> <br>
-
-          <label for="ärende">Typ av Ärende</label>
-          <select id="ärende" name="ärende">
-            <option value="köp av bild">Köp av Bild</option>
-            <option value="support">Support</option>
-            <option value="övrigt">Övrigt</option>
-          </select> <br> <br>
-
-          <label> Email:* </label>
-
-          <input id="eMailID" type="text" class="txt2" placeholder="Din Email"> <br><br>
-
-
-          <label> Telefonnummer: </label>
-          <input id="telefonNummerID" type="text" class="txt2" placeholder="Ditt telefonnummer"> <br><br>
-
-          <label> Beskrivning:* </label>
-          <textarea id="beskrivningID" value="">  </textarea> <br><br>
-
-        </form>
+  <div class="container col-lg-4 col-md-6 col-sm-12">
+    <div class="text-center px-5">
+      <hr>
+      <div class="row">
+        <div class="col-6">
+          <p><b> Telefon:</b>
+        </div>
+        <div class="col-6"> 08-74 84 62 </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <p><b> Adress:</b>
+        </div>
+        <div class="col-6"> Bothniagatan 26 </p>
+        </div>
       </div>
 
-      <button id="btn1" class="btn btn-secondary btn-sm " style="width: 100px; height: 50px;" onclick="kontaktInfo()">
-      Skicka Ärende
-    </button>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <p> Vid e-post kontakt ber vi er vänligen att använda kontaktformuläret nedan.
+        </div>
+      </div>
 
+      <hr>
+    </div>
+  </div>
+
+  <div class="container col-lg-6 col-md-6 col-sm-12">
+
+    <div class="">
+      <div class="jumbotron">
+        <h3 class="searchHeader"> Kontaktformulär </h3> <br>
+
+        <div class="emailInput ">
+
+          <form action="" method="">
+
+            <label> Förnamn:* </label>
+            <!-- definierar label för att kunna hantera de på ett lätt sätt i css.-->
+
+            <input id="forNamnID" type="text" class="txt2" placeholder="Ditt Förnamn"> <br> <br>
+            <label> Efternamn:* </label>
+            <input id="efterNamnID" type="text" class="txt2" placeholder="Ditt Efternamn"> <br> <br>
+
+            <label for="ärende">Typ av Ärende</label>
+            <select id="ärende" name="ärende">
+              <option value="köp av bild">Köp av Bild</option>
+              <option value="support">Support</option>
+              <option value="övrigt">Övrigt</option>
+            </select> <br> <br>
+
+            <label> Email:* </label>
+
+            <input id="eMailID" type="text" class="txt2" placeholder="Din Email"> <br><br>
+
+
+            <label> Telefonnummer: </label>
+            <input id="telefonNummerID" type="text" class="txt2" placeholder="Ditt telefonnummer"> <br><br>
+
+            <label> Beskrivning:* </label>
+            <textarea id="beskrivningID" value="">  </textarea> <br><br>
+
+          </form>
+        </div>
+
+        <button id="btn1" class="btn btn-primary btn-sm " style="width: 100px; height: 50px;" onclick="kontaktInfo()">
+          Skicka Ärende
+        </button>
+
+
+      </div>
 
     </div>
 
-  </div>
 
 
-
-
-
-  <!-- Container ends -->
+    <!-- Container ends -->
   </div>
 
 

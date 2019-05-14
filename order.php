@@ -30,7 +30,7 @@ if ($requestId == "addToOrder") {
 
     if ($check >= 1) {
 
-        $response = "ERROR - FINNS REDAN I ORDER";
+        $response = "Bilden finns redan i ordern";
     } else {
 
         $sql2 = "INSERT INTO OrderVagn (fkey_Orginalbild) VALUES (?);";
@@ -38,7 +38,7 @@ if ($requestId == "addToOrder") {
         $stmt2 = $db->prepare($sql2);
         $stmt2->execute([$imgId]);
 
-        $response = "BILDEN TILLAGD";
+        $response = "Bilden lades till i Ordern";
     }
 
 
@@ -58,7 +58,7 @@ if ($requestId == "addToOrder") {
     $stmt1 = $db->prepare($sql1);
     $stmt1->execute([$imgId]);
 
-    $response = "BILDEN BORTTAGEN";
+    $response = "Bilden borttagen";
 
 
     echo $response;

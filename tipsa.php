@@ -38,22 +38,23 @@
 
   <div class="jumbotron jumbotron-fluid">
     <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
-      <p class="text-center"> Bothniabladet Bildbyrå <p>
+      <p class="text-center"> Bothniabladets Bildbyrå <p>
     </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="./index.php">Hem</a>
+
+      <li class="nav-item">
+          <a class="nav-link" href="./index.php"><b>Hem</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./tipsa.php">Tipsa</a>
+          <a class="nav-link active" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./kontaktaOss.php">Kontakta Oss</a>
+          <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./loggaIn.php">Logga In</a>
+          <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
       </ul>
@@ -61,7 +62,7 @@
 
   </div>
 
-  <div class="container">
+  <div class="container col-lg-6 col-md-6 col-sm-12">
     <div class="jumbotron">
       <h3 class="searchHeader"> Tipsa oss </h3> <br>
 
@@ -82,19 +83,17 @@
           <button style="width: 210px; height: 50px; margin-left: 10.3em;" id="btn5" class="btn btn-secondary btn-sm ">
             Bifoga bild
           </button> <br> <br>
-          <label> Bifogad fil:* </label>
-          <input style="width: 500px;" id="bifogadID" type="text" class="txt8" value="storage/sdcard0/DCIM/Screenshots/2852192-123.jpeg"> <br> <br>
+
 
         </form>
       </div>
 
-      <button style="width: 100px; height: 50px;" id="btn1" class="btn btn-secondary btn-sm " onclick="skickaTips()">
-                                Skicka Tips
-     </button>
+      <button style="width: 100px; height: 50px;" id="btn1" class="btn btn-primary btn-sm " onclick="skickaTips()">
+        Skicka Tips
+      </button>
 
 
     </div>
-
 
 
   </div>

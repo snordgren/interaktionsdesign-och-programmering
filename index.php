@@ -24,21 +24,21 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
+  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladets Bildbyrå <p> </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="./index.php">Hem</a>
+      <li class="nav-item">
+          <a class="nav-link active" href="./index.php"><b>Hem</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./tipsa.php">Tipsa</a>
+          <a class="nav-link" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./kontaktaOss.php">Kontakta Oss</a>
+          <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./loggaIn.php">Logga In</a>
+          <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
       </ul>

@@ -18,8 +18,9 @@
 <body>
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
+  <?php include 'modalKeywords.php'; ?>
   <?php include 'sqlite.php'; ?>
-  
+
   <script type="text/javascript" src="image.js"></script>
 
   <script>
@@ -37,6 +38,13 @@
 
       }
     }
+
+    function test(){
+      document.getElementById('submited-Words').value = allWords.toString();
+      document.getElementById('sparade-ord').innerHTML= allWords.toString();
+      
+    }
+
   </script>
 
 
@@ -44,22 +52,22 @@
 
   <div class="jumbotron jumbotron-fluid">
     <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
-      <p class="text-center"> Bothniabladet Bildbyrå <p>
+      <p class="text-center"> Bothniabladets Bildbyrå <p>
     </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="./adminIndex.php">Hem</a>
+          <a class="nav-link" href="./adminIndex.php"><b>Sök</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./laddaUppBild.php">Ladda Upp Bild</a>
+          <a class="nav-link active" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./orderhantering.php">Orderhantering</a>
+          <a class="nav-link" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+          <a class="nav-link" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
       </ul>
@@ -67,109 +75,132 @@
   </div>
 
 
-  <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
+  <div class="container col-lg-8 col-md-6 col-sm-12">
 
-    <div class="col-12">
-      <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
-    </div>
+    <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
 
-    <div class="col-12 mt-2">
-      <textarea form="img-upload-form" class="form-control rounded-0 col-12" placeholder="Beskrivning..." name="image-description" required></textarea>
-    </div>
+      <div class="col-12">
+        <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
+      </div>
 
-    <div class="col-12 mt-2">
-      <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
-        <option value="0" form="img-upload-form" selected>Ägd</option>
-        <option value="1" form="img-upload-form">Ej ägd</option>
-      </select>
-    </div>
-    <!-- Antal gånger bilden får användas av Bothniabladet -->
-    <div class="col-12 mt-2" id="antalGångerDiv">
-      <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />
-    </div>
+      <div class="col-12 mt-4">
+        <textarea form="img-upload-form" class="form-control rounded-0 col-12" placeholder="Beskrivning..." name="image-description" required></textarea>
+      </div>
 
-    <div class="col-12 mt-2">
-      <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
-      <input type="file" name="pictures" accept="image/*" required />
-      <input class="btn btn-primary col-12 mt-2" type="submit" value="Ladda upp" />
-    </div>
+      <div class="col-12 mt-4">
+        <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
+          <option value="0" form="img-upload-form" selected>Ägd</option>
+          <option value="1" form="img-upload-form">Ej ägd</option>
+        </select>
+      </div>
+      <!-- Antal gånger bilden får användas av Bothniabladet -->
+      <div class="col-12 mt-4" id="antalGångerDiv">
+        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />
+      </div>
 
-    <?php
-    //Genererar ett eget random namn
-    $n = rand(1, 1000000);
-    $Name = "IMG-" . $n;
+      <div class="col-12 mt-4">
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+        <input type="file" name="pictures" accept="image/*" required />
+      </div>
 
-    $image = new Bulletproof\Image($_FILES);
-    $image->setLocation('./img/uploaded');
-    $image->setSize(0, 100000000);
-    $image->setName($Name);
+      <div class="col-12 mt-5">
+        <input class="btn btn-secondary" type="button" value="Lägg Till Nyckelord" data-toggle="modal" data-target="#keywordsModal"/> 
+        <!-- Här sparas nyckelorden -->
+        <input type="hidden" id="submited-Words" name="keywords" required/>
+      </div>
+      <div class="col-12 mt-1">
+        <b>Sparade Nyckelord:</b><p id="sparade-ord" style="word-wrap: break-word;"> </p> 
+      </div>
 
-    if ($image["pictures"]) {
-      $upload = $image->upload();
 
-      if ($upload) {
+      <?php
+      $Keywords_ = array('Test');
 
-        echo $upload->getFullPath();
-        echo $_POST['image-title'];
-        echo $_POST['image-description'];
-        echo $_POST['image-ownership'];
-        echo $_POST['usage-number'];
+      //Genererar ett eget random namn
+      $n = rand(1, 1000000);
+      $Name = "IMG-" . $n;
 
-        $titel = $_POST['image-title'];
-        $desc = $_POST['image-description'];
-        $ownship = $_POST['image-ownership'];
-        $usgNr = $_POST['usage-number'];
+      $image = new Bulletproof\Image($_FILES);
+      $image->setLocation('./img/uploaded');
+      $image->setSize(0, 100000000);
+      $image->setName($Name);
 
-        //**********INSERTS******************* */
+      if ($image["pictures"]) {
+        $upload = $image->upload();
 
-        //(1)Insert Orginalbild
-        $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
+        if ($upload) {
+
+          echo $upload->getFullPath();
+          echo $_POST['image-title'];
+          echo $_POST['image-description'];
+          echo $_POST['image-ownership'];
+          echo $_POST['usage-number'];
+          echo $_POST['keywords'];
+
+          $titel = $_POST['image-title'];
+          $desc = $_POST['image-description'];
+          $ownship = $_POST['image-ownership'];
+          $usgNr = $_POST['usage-number'];
+
+          $keywords = $_POST['keywords'];
+
+          //**********INSERTS******************* */
+
+          //(1)Insert Orginalbild
+          $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
                   VALUES (?, ?, ?, ?)";
 
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$titel, $desc, $ownship, $usgNr]);
+          $stmt = $db->prepare($sql);
+          $stmt->execute([$titel, $desc, $ownship, $usgNr]);
 
-        //**********GET ID AND RENAME******************* */
+          //**********GET ID AND RENAME******************* */
 
-        $imgId = "";
+          $imgId = "";
 
-        //$db -> SELECT highest ID (most recent) in Orginalbild
+          //$db -> SELECT highest ID (most recent) in Orginalbild
 
-        $sql = "SELECT MAX(rowid) AS MaxValue
+          $sql = "SELECT MAX(rowid) AS MaxValue
                   FROM Orginalbild";
 
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-        //Om bilden redan finns så kommer 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          $imgId = $row['MaxValue'];
-        }
+          $stmt = $db->prepare($sql);
+          $stmt->execute();
+          //Om bilden redan finns så kommer 
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $imgId = $row['MaxValue'];
+          }
 
-        //rename ($name, To highest ID);
-        $oldName = "./img/uploaded/" . $Name . ".jpeg";
-        $newName = "./img/" . $imgId . ".jpeg";
-        rename($oldName, $newName);
+          //rename ($name, To highest ID);
+          $oldName = "./img/uploaded/" . $Name . ".jpeg";
+          $newName = "./img/" . $imgId . ".jpeg";
+          rename($oldName, $newName);
 
 
-        //(2)Insert Kategorirad (Koppla till kategorier)
-        $sql = "INSERT INTO Kategorirad (fkey_Orginalbild, fkey_Kategori) 
+          //(2)Insert Kategorirad (Koppla till kategorier)
+          $sql = "INSERT INTO Kategorirad (fkey_Orginalbild, fkey_Kategori) 
                   VALUES (?, ?)";
 
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$imgId, 1]);
+          $stmt = $db->prepare($sql);
+          $stmt->execute([$imgId, 1]);
 
-        //(2)Insert Nyckelordrad (Koppla till kategorier)
+          //(2)Insert Nyckelordrad (Koppla till kategorier)
 
-
-
-
-      } else {
-        echo $image->getError();
+        } else {
+          echo $image->getError();
+        }
       }
-    }
-    ?>
+      ?>
 
-  </form>
+      <!-- SUBMIT BUTTON -->
+      <div class="col-12 mt-2">
+        <input class="btn btn-primary col-12 mt-5" type="submit" value="Ladda upp" />
+      </div>
+
+    </form>
+
+
+  </div>
+
+
 
 
   <!-- END of webbpage -->

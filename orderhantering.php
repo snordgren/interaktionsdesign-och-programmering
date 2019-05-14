@@ -24,21 +24,21 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
+  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladets Bildbyrå <p> </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="./adminIndex.php">Hem</a>
+      <li class="nav-item">
+          <a class="nav-link " href="./adminIndex.php"><b>Sök</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./laddaUppBild.php">Ladda Upp Bild</a>
+          <a class="nav-link" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./orderhantering.php">Orderhantering</a>
+          <a class="nav-link active" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./minaSidor.php">Mina Sidor</a>
+          <a class="nav-link" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
       </ul>
@@ -75,7 +75,7 @@
 
   ?>
 
-  <div class="container jumbotron">
+  <div class="container jumbotron col-lg-8 col-md-6 col-sm-12">
 
     <h2>Pågående Order</h2>
 
@@ -125,14 +125,14 @@
     <br>
     <!-- BREAK -->
 
-    <div class="container" id="orderButtons">
+    <div class="container " id="orderButtons">
 
       <button type="button" class="btn-orderhantering btn btn-primary float-right">Bekräfta Order</button>
       <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()" >Töm Order</button>
 
     </div>
 
-    <div class="container" id="btnKundUppgifter">
+    <div class="container " id="btnKundUppgifter">
       <button type="button" class="btn-orderhantering btn btn-primary">Visa/Lägg Till Kunduppgifter</button>
     </div>
 
@@ -158,7 +158,7 @@
 
 
 
-  <div class="container jumbotron">
+  <div class="container jumbotron col-lg-8 col-md-6 col-sm-12">
     <div class="container">
       <button type="button" class="btn-orderhantering btn btn-secondary">Visa Historiska Ordrar</button>
     </div>
