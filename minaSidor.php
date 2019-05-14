@@ -23,7 +23,9 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladet Bildbyrå <p> </h1>
+    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
+      <p class="text-center"> Bothniabladet Bildbyrå <p>
+    </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
@@ -45,57 +47,57 @@
   </div>
 
   <div class="container">
-       <div class="jumbotron">
-           <h4 class="searchHeader"> Min Profil </h4> <br>
-           
-          <div class="minInfo " >
-          
-              <form action="" method="">
-            <!-- inputs för all information som vi vill ha -->
-                <label> Förnamn: </label> 
-                
-                 
-                <input id="forNamnID" type="text" class="txt5" value="Joel" readonly=""> <br> <br> 
-                <label> Efternamn: </label>
-                <input id="efterNamnID" type="text" class="txt5" value="Tingman" readonly> <br> <br>
+    <div class="jumbotron">
+      <h4 class="searchHeader"> Min Profil </h4> <br>
 
-                <label> Email:* </label>
-                
-                <input id="eMailID" type="text" class="txt4" value="joel.tingman@hotmail.com" > <br><br>
-                
-               
-                <label> Telefonnummer:* </label>
-                <input id="telefonNummerID" type="text" class="txt4" value="070-1122334" > <br><br>
-                
-                <button class="btn btn-secondary btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Byt Lösenord
-                  </button>
+      <div class="minInfo ">
 
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
+        <form action="" method="">
+          <!-- inputs för all information som vi vill ha -->
+          <label> Förnamn: </label>
 
-                        <div class="form-check form-check-inline">
-                            <input class="txt9" type="password" id="password1" placeholder="Nuvarande Lösenord"> 
-                            <input class="txt9" type="password" id="password2" placeholder="Nytt Lösenord"> 
-                            <input class="txt9" type="password" id="password3" placeholder="Bekräfta Lösenord">
-                            
-                            <button id="btn2" class="btn btn-secondary btn-sm" onclick="resetPw()">
-                                Spara
-                  </button>
-                
-                
-                        </form>
-           </div>
-                         
 
-            </div>
-</div> 
-        <button id="btn1" class="btn btn-secondary btn-sm " onclick="sparaProfil()">
-                                Spara Profil
-                  </button>
+          <input id="forNamnID" type="text" class="txt5" value="Jolex" readonly=""> <br> <br>
+          <label> Efternamn: </label>
+          <input id="efterNamnID" type="text" class="txt5" value="Tinggren" readonly> <br> <br>
 
-      
-  
+          <label> Email:* </label>
+
+          <input id="eMailID" type="text" class="txt4" value="elmman@hotmail.com"> <br><br>
+
+
+          <label> Telefonnummer:* </label>
+          <input id="telefonNummerID" type="text" class="txt4" value="070-1122334"> <br><br>
+
+          <button class="btn btn-secondary btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Byt Lösenord
+          </button>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+
+              <div class="form-check form-check-inline">
+                <input class="txt9" type="password" id="password1" placeholder="Nuvarande Lösenord">
+                <input class="txt9" type="password" id="password2" placeholder="Nytt Lösenord">
+                <input class="txt9" type="password" id="password3" placeholder="Bekräfta Lösenord">
+
+                <button id="btn2" class="btn btn-secondary btn-sm" onclick="resetPw()">
+                  Spara
+                </button>
+
+
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  <button id="btn1" class="btn btn-secondary btn-sm " onclick="sparaProfil()">
+    Spara Profil
+  </button>
+
+
+
 
 
   <div class="container">

@@ -128,7 +128,7 @@
     <div class="container" id="orderButtons">
 
       <button type="button" class="btn-orderhantering btn btn-primary float-right">Bekräfta Order</button>
-      <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()">Töm Order</button>
+      <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()" >Töm Order</button>
 
     </div>
 
