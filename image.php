@@ -55,9 +55,7 @@ if ($requestId == "showImages") {
 
     //To avoid duplicates we create an array
     $usedBilder = array("test");
-
-
-
+    
 
     //1 sökord
     if ($count === 1) {
@@ -82,13 +80,13 @@ if ($requestId == "showImages") {
         $sql1 = "SELECT ob.rowid, * 
                 FROM Orginalbild ob 
                 INNER JOIN Kategorirad kr on ob.rowid = kr.fkey_Orginalbild 
-                INNER JOIN Kategori on kr.fkey_Kategori = Kategori.Kategori_Id 
-                WHERE Kategori.KategoriNamn 
+                INNER JOIN Kategori k on kr.fkey_Kategori = k.Kategori_Id 
+                WHERE k.KategoriNamn 
                 LIKE ?;";
 
         $sql2 = "SELECT ob.rowid, * 
                 FROM Orginalbild ob 
-                INNER JOIN Nyckelordrad nr on ob.Orginalbild_Id = nr.fkey_Orginalbild 
+                INNER JOIN Nyckelordrad nr on ob.rowid = nr.fkey_Orginalbild 
                 INNER JOIN Nyckelord n on nr.fkey_Nyckelord = n.rowid
                 WHERE n.Ord 
                 LIKE ?;";
@@ -125,19 +123,19 @@ if ($requestId == "showImages") {
         while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 
             //Kollar ifall bilden (ID) redan blivit tillagd
-            if (($key = array_search($row['Orginalbild_Id'], $usedBilder)) == false) {
+            if (($key = array_search($row['rowid'], $usedBilder)) == false) {
 
                 //Om svars-stängen är tom så läggs bara ordet till..
                 if ($response === "") {
-                    $response = $row['Orginalbild_Id'];
+                    $response = $row['rowid'];
 
                     //..annars så läggs ett , till innan ordet.
                 } else {
-                    $response .= "," . $row['Orginalbild_Id'];
+                    $response .= "," . $row['rowid'];
                 }
 
                 //Sparar bilden som lades till i listan av usedBilder
-                array_push($usedBilder, $row['Orginalbild_Id']);
+                array_push($usedBilder, $row['rowid']);
             }
         }
 
@@ -263,7 +261,7 @@ if ($requestId == "showImages") {
     echo $response === "" ? "" : $response;
 
     //*********************************************************************************************** */
-    //TRY TO SAVE THE WORD THAT MATCHED
+    // SAVE THE WORD THAT MATCHED
 } else if ($requestId == "m") {
 
     //Get the input
@@ -321,7 +319,7 @@ if ($requestId == "showImages") {
 
 
 
-    //En array med varje ord separerat med " "
+    //En string med varje ord separerat med ", "
     for ($x = 1; $x < Count($matchingWords); $x++) {
 
         $response .= $matchingWords[$x] . ", ";

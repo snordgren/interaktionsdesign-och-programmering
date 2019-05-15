@@ -29,20 +29,20 @@
 
       if (document.getElementById('select-ownership').value == "1") {
 
-        document.getElementById('antalGångerDiv').innerHTML = "<label for='Antalggr'> Användningar: </label> <input type='text' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' Style='text-align: center;' required />";
+        document.getElementById('antalGångerDiv').innerHTML = "<label for='Antalggr'> Användningar: </label> <input type='text' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal'  required />";
         document.getElementById("antalGångerInput").type = "text";
 
       } else if (document.getElementById('select-ownership').value == "0") {
 
-        document.getElementById('antalGångerDiv').innerHTML = "<input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />";
+        document.getElementById('antalGångerDiv').innerHTML = "<input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' required />";
 
       }
     }
 
-    function test(){
+    function test() {
       document.getElementById('submited-Words').value = allWords.toString();
-      document.getElementById('sparade-ord').innerHTML= allWords.toString();
-      
+      document.getElementById('sparade-ord').innerHTML = allWords.toString();
+
     }
 
   </script>
@@ -95,7 +95,7 @@
       </div>
       <!-- Antal gånger bilden får användas av Bothniabladet -->
       <div class="col-12 mt-4" id="antalGångerDiv">
-        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' Style='text-align: center;' required />
+        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0'  required />
       </div>
 
       <div class="col-12 mt-4">
@@ -104,12 +104,13 @@
       </div>
 
       <div class="col-12 mt-5">
-        <input class="btn btn-secondary" type="button" value="Lägg Till Nyckelord" data-toggle="modal" data-target="#keywordsModal"/> 
+        <input class="btn btn-secondary" type="button" value="Lägg Till Nyckelord" data-toggle="modal" data-target="#keywordsModal" />
         <!-- Här sparas nyckelorden -->
-        <input type="hidden" id="submited-Words" name="keywords" required/>
+        <input type="hidden" id="submited-Words" name="keywords" required />
       </div>
       <div class="col-12 mt-1">
-        <b>Sparade Nyckelord:</b><p id="sparade-ord" style="word-wrap: break-word;"> </p> 
+        <b>Sparade Nyckelord:</b>
+        <p id="sparade-ord" style="word-wrap: break-word;"> </p>
       </div>
 
 
@@ -159,31 +160,83 @@
 
           //$db -> SELECT highest ID (most recent) in Orginalbild
 
-          $sql = "SELECT MAX(rowid) AS MaxValue
+          $sql = "SELECT MAX(rowid) AS maxValue
                   FROM Orginalbild";
 
           $stmt = $db->prepare($sql);
           $stmt->execute();
           //Om bilden redan finns så kommer 
           while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $imgId = $row['MaxValue'];
+            $imgId = $row['maxValue'];
           }
 
-          //rename ($name, To highest ID);
-          $oldName = "./img/uploaded/" . $Name . ".jpeg";
-          $newName = "./img/" . $imgId . ".jpeg";
-          rename($oldName, $newName);
 
+          //(2)Insert Nyckelord
+          $nyckelord = explode(",", $keywords);
+          
+          //En array som håller koll på vilka nyckelordid's som associeras med bilden
+          $nyckelordIds = array('test');
+          
+          //Sätter in i Nyckelord
+          for ($x = 0; $x < count($nyckelord); $x++) {
 
-          //(2)Insert Kategorirad (Koppla till kategorier)
-          $sql = "INSERT INTO Kategorirad (fkey_Orginalbild, fkey_Kategori) 
-                  VALUES (?, ?)";
+            //Kollar om ordet redan finns
+            $sql = "SELECT rowid, * FROM Nyckelord
+            WHERE Nyckelord.Ord = ?";
 
-          $stmt = $db->prepare($sql);
-          $stmt->execute([$imgId, 1]);
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$nyckelord[$x]]);
 
-          //(2)Insert Nyckelordrad (Koppla till kategorier)
+            //Går igenom alla rows som quarin gav en efter en
+            if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
+              if ($nyckelord[$x] == $row['Ord']) {
+                //Tar bort från arrayen
+                unset($nyckelord[$x]);
+                //Omordnar arryens indexering
+                $qArray = array_values($nyckelord);
+                //Om inte hittas, så görs en insert
+
+                //Sparar id't
+                array_push($nyckelordIds, $row['rowid']);
+              }
+
+            }else {
+              $sql = "INSERT INTO Nyckelord (Ord) 
+              VALUES (?)";
+
+              $stmt = $db->prepare($sql);
+              $stmt->execute([$nyckelord[$x]]);
+
+              //Sparar id't för nya nyckelordet
+              $sql = "SELECT MAX(rowid) AS maxValue
+               FROM Nyckelord";
+
+              $stmt = $db->prepare($sql);
+              $stmt->execute();
+
+              while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //Sparar id't
+                array_push($nyckelordIds, $row['maxValue']);
+              }
+            }
+
+          }
+
+          //(3)Sätter in i nyckelordrad all ord som (börjar på 1, då första ordet i arrayen är ett random ord)
+          for ($x = 1; $x < count($nyckelordIds); $x++) {
+
+            $sql = "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord)
+                    VALUES (?, ?)";
+
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$imgId, $nyckelordIds[$x]]);
+          }
+
+                    //rename ($name, To highest ID);
+                    $oldName = "./img/uploaded/" . $Name . ".jpeg";
+                    $newName = "./img/" . $imgId . ".jpeg";
+                    rename($oldName, $newName);
         } else {
           echo $image->getError();
         }

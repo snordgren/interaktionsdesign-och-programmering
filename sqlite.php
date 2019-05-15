@@ -55,8 +55,8 @@ try {
                   "INSERT INTO Kategorirad (Kategorirad_Id, fkey_Orginalbild, fKey_Kategori) VALUES (12, 10, 2);");
 
             //INSERT INTO Nyckelord
-            $db->exec("INSERT INTO Nyckelord (Ord) VALUES ('Helsingborg');" .
-                  "INSERT INTO Nyckelord (Ord) VALUES ('Jörgen');" .
+            $db->exec("INSERT INTO Nyckelord (Ord) VALUES ('helsingborg');" .
+                  "INSERT INTO Nyckelord (Ord) VALUES ('jörgen');" .
                   "INSERT INTO Nyckelord (Ord) VALUES ('1920x1080p');");
 
             //INSERT INTO Nyckelordrad

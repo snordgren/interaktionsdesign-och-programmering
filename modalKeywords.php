@@ -10,6 +10,7 @@
       function addWord() {
         var word = document.getElementById('word-input').value;
         word = word.trim();
+        word = word.toLowerCase();
 
         if (word != "") {
 
@@ -72,7 +73,7 @@
                 <div class="row  col-12">
 
                   <div class="col-6"> <input type="text" id="word-input" placeholder="Nyckelord.." name="image-title" style="text-align:center;" /> </div>
-                  <div class="col-3"><input class="btn btn-secondary ml-2" type="button" value="Lägg till" onclick='clickOnIt()' /> </div>
+                  <div class="col-3"><input class="btn btn-primary ml-2" type="button" value="Lägg till" onclick='clickOnIt()' /> </div>
                   <div class="col-3"><input class="btn btn-secondary ml-4" type="button" value="Rensa" onclick='removeAll()' /> </div>
 
                 </div>
