@@ -49,16 +49,16 @@
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
 
-      <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./index.php"><b>Hem</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
@@ -67,40 +67,24 @@
 
   </div>
 
-  <div class="container col-lg-4 col-md-6 col-sm-12">
-    <div class="text-center px-5">
-      <hr>
-      <div class="row">
-        <div class="col-6">
-          <p><b> Telefon:</b>
-        </div>
-        <div class="col-6"> 08-74 84 62 </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <p><b> Adress:</b>
-        </div>
-        <div class="col-6"> Bothniagatan 26 </p>
-        </div>
-      </div>
 
-      <br>
-      <div class="row">
-        <div class="col-12">
-          <p> Vid e-post kontakt ber vi er vänligen att använda kontaktformuläret nedan.
-        </div>
-      </div>
 
-      <hr>
-    </div>
-  </div>
 
-  <div class="container col-lg-6 col-md-6 col-sm-12">
 
-    <div class="">
-      <div class="jumbotron">
+
+  <div class="container">
+
+  <div class="row">
+
+  <div class="col-lg-8 col-sm-12">
+
+    <div class="card ">
+      <div class="card-header text-center">
         <h3 class="searchHeader"> Kontaktformulär </h3> <br>
+      </div>
+
+      <div class="card-body">
+
 
         <div class="emailInput ">
 
@@ -132,20 +116,61 @@
             <textarea id="beskrivningID" value="">  </textarea> <br><br>
 
           </form>
+
         </div>
 
+      </div>
+
+      <div class="card-footer">
         <button id="btn1" class="btn btn-primary btn-sm " style="width: 100px; height: 50px;" onclick="kontaktInfo()">
           Skicka Ärende
         </button>
-
-
       </div>
 
     </div>
 
+  </div>
+
+    
+
+    <div class="card col-lg-4 col-sm-12">
+      <div class="card-body"> 
+      <div class="text-center">
+        <hr>
+        <div class="row">
+          <div class="col-6">
+            <p><b> Telefon:</b>
+          </div>
+          <div class="col-6"> 08-74 84 62 </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p><b> Adress:</b>
+          </div>
+          <div class="col-6"> Bothniagatan 26 </p>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <p> Vid e-post kontakt ber vi er vänligen att använda kontaktformuläret till vänster.
+          </div>
+        </div>
+
+        <hr>
+      
+
+      </div> 
+      
+    </div>
+      
+    </div>
+
+  </div>
 
 
-    <!-- Container ends -->
   </div>
 
 

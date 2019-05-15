@@ -28,16 +28,16 @@
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-      <li class="nav-item">
+      <li class="nav-item mx-2">
           <a class="nav-link active" href="./index.php"><b>Hem</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 

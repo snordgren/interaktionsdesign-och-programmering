@@ -56,16 +56,16 @@
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./adminIndex.php"><b>Sök</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
@@ -76,189 +76,197 @@
 
   <div class="container col-lg-8 col-md-6 col-sm-12">
 
-    <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
+    <div class="card">
+      <div class="card-header">
+        <h3> Ladda upp en bild </h3>
+    </div>
 
-      <div class="col-12">
-        <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
-      </div>
+      <div class="card-body">
 
-      <div class="col-12 mt-4">
-        <textarea form="img-upload-form" class="form-control rounded-0 col-12" placeholder="Beskrivning..." name="image-description" required></textarea>
-      </div>
+        <form method="POST" class="container" enctype="multipart/form-data" id="img-upload-form">
 
-      <div class="col-12 mt-4">
-        <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
-          <option value="0" form="img-upload-form" selected>Ägd</option>
-          <option value="1" form="img-upload-form">Ej ägd</option>
-        </select>
-      </div>
-      <!-- Antal gånger bilden får användas av Bothniabladet -->
-      <div class="col-12 mt-4" id="antalGångerDiv">
-        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' required />
-      </div>
+          <div class="col-12">
+            <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
+          </div>
 
-      <div class="col-12 mt-4">
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
-        <input type="file" name="pictures" accept="image/*" required />
-      </div>
+          <div class="col-12 mt-4">
+            <textarea form="img-upload-form" class="form-control rounded-0 col-12" placeholder="Beskrivning..." name="image-description" required></textarea>
+          </div>
 
-      <div class="col-12 mt-5">
-        <input class="btn btn-secondary" type="button" value="Lägg Till Nyckelord" data-toggle="modal" data-target="#keywordsModal" />
-        <!-- Här sparas nyckelorden -->
-        <input type="hidden" id="submited-Words" name="keywords" required />
-      </div>
-      <div class="col-12 mt-1">
-        <b>Sparade Nyckelord:</b>
-        <p id="sparade-ord" style="word-wrap: break-word;"> </p>
-      </div>
+          <div class="col-12 mt-4">
+            <select class="custom-select col-12" name="image-ownership" id="select-ownership" onChange="onStatusChange()">
+              <option value="0" form="img-upload-form" selected>Ägd</option>
+              <option value="1" form="img-upload-form">Ej ägd</option>
+            </select>
+          </div>
+          <!-- Antal gånger bilden får användas av Bothniabladet -->
+          <div class="col-12 mt-4" id="antalGångerDiv">
+            <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' required />
+          </div>
+
+          <div class="col-12 mt-4">
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+            <input type="file" name="pictures" accept="image/*" required />
+          </div>
+
+          <div class="col-12 mt-5">
+            <input class="btn btn-secondary" type="button" value="Lägg Till Nyckelord" data-toggle="modal" data-target="#keywordsModal" />
+            <!-- Här sparas nyckelorden -->
+            <input type="hidden" id="submited-Words" name="keywords" required />
+          </div>
+          <div class="col-12 mt-1">
+            <b>Sparade Nyckelord:</b>
+            <p id="sparade-ord" style="word-wrap: break-word;"> </p>
+          </div>
 
 
-      <?php
-      $Keywords_ = array('Test');
+          <?php
+          $Keywords_ = array('Test');
 
-      //Genererar ett eget random namn
-      $n = rand(1, 1000000);
-      $Name = "IMG-" . $n;
+          //Genererar ett eget random namn
+          $n = rand(1, 1000000);
+          $Name = "IMG-" . $n;
 
-      $image = new Bulletproof\Image($_FILES);
-      $image->setLocation('./img/uploaded');
-      $image->setSize(0, 100000000);
-      $image->setName($Name);
+          $image = new Bulletproof\Image($_FILES);
+          $image->setLocation('./img/uploaded');
+          $image->setSize(0, 100000000);
+          $image->setName($Name);
 
-      if ($image["pictures"]) {
-        $upload = $image->upload();
+          if ($image["pictures"]) {
+            $upload = $image->upload();
 
-        if ($upload) {
+            if ($upload) {
 
-          echo $upload->getFullPath();
-          echo $_POST['image-title'];
-          echo $_POST['image-description'];
-          echo $_POST['image-ownership'];
-          echo $_POST['usage-number'];
-          echo $_POST['keywords'];
+              echo $upload->getFullPath();
+              echo $_POST['image-title'];
+              echo $_POST['image-description'];
+              echo $_POST['image-ownership'];
+              echo $_POST['usage-number'];
+              echo $_POST['keywords'];
 
-          $titel = $_POST['image-title'];
-          $desc = $_POST['image-description'];
-          $ownship = $_POST['image-ownership'];
-          $usgNr = $_POST['usage-number'];
+              $titel = $_POST['image-title'];
+              $desc = $_POST['image-description'];
+              $ownship = $_POST['image-ownership'];
+              $usgNr = $_POST['usage-number'];
 
-          $keywords = $_POST['keywords'];
+              $keywords = $_POST['keywords'];
 
-          //**********INSERTS******************* */
+              //**********INSERTS******************* */
 
-          //(1)Insert Orginalbild
-          $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
+              //(1)Insert Orginalbild
+              $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
                   VALUES (?, ?, ?, ?)";
 
-          $stmt = $db->prepare($sql);
-          $stmt->execute([$titel, $desc, $ownship, $usgNr]);
-
-          //**********GET ID AND RENAME******************* */
-
-          $imgId = "";
-
-          //$db -> SELECT highest ID (most recent) in Orginalbild
-
-          $sql = "SELECT MAX(rowid) AS maxValue
-                  FROM Orginalbild";
-
-          $stmt = $db->prepare($sql);
-          $stmt->execute();
-          //Om bilden redan finns så kommer 
-          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $imgId = $row['maxValue'];
-          }
-
-
-          //(2)Insert Nyckelord
-          $nyckelord = explode(",", $keywords);
-
-          //En array som håller koll på vilka nyckelordid's som associeras med bilden
-          $nyckelordIds = array('test');
-
-          //Sätter in i Nyckelord
-          for ($x = 0; $x < count($nyckelord); $x++) {
-
-            //Kollar om ordet redan finns
-            $sql = "SELECT rowid, * FROM Nyckelord
-            WHERE Nyckelord.Ord = ?";
-
-            $stmt = $db->prepare($sql);
-            $stmt->execute([$nyckelord[$x]]);
-
-            //Går igenom alla rows som quarin gav en efter en
-            if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-              if ($nyckelord[$x] == $row['Ord']) {
-                //Tar bort från arrayen
-                unset($nyckelord[$x]);
-                //Omordnar arryens indexering
-                $qArray = array_values($nyckelord);
-                //Om inte hittas, så görs en insert
-
-                //Sparar id't
-                array_push($nyckelordIds, $row['rowid']);
-              }
-            } else {
-              $sql = "INSERT INTO Nyckelord (Ord) 
-              VALUES (?)";
-
               $stmt = $db->prepare($sql);
-              $stmt->execute([$nyckelord[$x]]);
+              $stmt->execute([$titel, $desc, $ownship, $usgNr]);
 
-              //Sparar id't för nya nyckelordet
+              //**********GET ID AND RENAME******************* */
+
+              $imgId = "";
+
+              //$db -> SELECT highest ID (most recent) in Orginalbild
+
               $sql = "SELECT MAX(rowid) AS maxValue
-               FROM Nyckelord";
+                  FROM Orginalbild";
 
               $stmt = $db->prepare($sql);
               $stmt->execute();
-
+              //Om bilden redan finns så kommer 
               while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                //Sparar id't
-                array_push($nyckelordIds, $row['maxValue']);
+                $imgId = $row['maxValue'];
               }
-            }
-          }
 
-          //(3)Sätter in i nyckelordrad all ord som (börjar på 1, då första ordet i arrayen är ett random ord)
-          for ($x = 1; $x < count($nyckelordIds); $x++) {
 
-            $sql = "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord)
+              //(2)Insert Nyckelord
+              $nyckelord = explode(",", $keywords);
+
+              //En array som håller koll på vilka nyckelordid's som associeras med bilden
+              $nyckelordIds = array('test');
+
+              //Sätter in i Nyckelord
+              for ($x = 0; $x < count($nyckelord); $x++) {
+
+                //Kollar om ordet redan finns
+                $sql = "SELECT rowid, * FROM Nyckelord
+            WHERE Nyckelord.Ord = ?";
+
+                $stmt = $db->prepare($sql);
+                $stmt->execute([$nyckelord[$x]]);
+
+                //Går igenom alla rows som quarin gav en efter en
+                if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+                  if ($nyckelord[$x] == $row['Ord']) {
+                    //Tar bort från arrayen
+                    unset($nyckelord[$x]);
+                    //Omordnar arryens indexering
+                    $qArray = array_values($nyckelord);
+                    //Om inte hittas, så görs en insert
+
+                    //Sparar id't
+                    array_push($nyckelordIds, $row['rowid']);
+                  }
+                } else {
+                  $sql = "INSERT INTO Nyckelord (Ord) 
+              VALUES (?)";
+
+                  $stmt = $db->prepare($sql);
+                  $stmt->execute([$nyckelord[$x]]);
+
+                  //Sparar id't för nya nyckelordet
+                  $sql = "SELECT MAX(rowid) AS maxValue
+               FROM Nyckelord";
+
+                  $stmt = $db->prepare($sql);
+                  $stmt->execute();
+
+                  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    //Sparar id't
+                    array_push($nyckelordIds, $row['maxValue']);
+                  }
+                }
+              }
+
+              //(3)Sätter in i nyckelordrad all ord som (börjar på 1, då första ordet i arrayen är ett random ord)
+              for ($x = 1; $x < count($nyckelordIds); $x++) {
+
+                $sql = "INSERT INTO Nyckelordrad (fkey_Orginalbild, fkey_Nyckelord)
                     VALUES (?, ?)";
 
-            $stmt = $db->prepare($sql);
-            $stmt->execute([$imgId, $nyckelordIds[$x]]);
+                $stmt = $db->prepare($sql);
+                $stmt->execute([$imgId, $nyckelordIds[$x]]);
+              }
+
+              //rename ($name, To highest ID);
+              $oldName = "./img/uploaded/" . $Name . ".jpeg";
+              $newName = "./img/" . $imgId . ".jpeg";
+              rename($oldName, $newName);
+            } else {
+              echo $image->getError();
+            }
           }
+          ?>
 
-          //rename ($name, To highest ID);
-          $oldName = "./img/uploaded/" . $Name . ".jpeg";
-          $newName = "./img/" . $imgId . ".jpeg";
-          rename($oldName, $newName);
-        } else {
-          echo $image->getError();
-        }
-      }
-      ?>
+          <!-- SUBMIT BUTTON -->
+          <div class="col-12 mt-2">
+            <input class="btn btn-primary col-12 mt-5" type="submit" value="Ladda upp" />
+          </div>
 
-      <!-- SUBMIT BUTTON -->
-      <div class="col-12 mt-2">
-        <input class="btn btn-primary col-12 mt-5" type="submit" value="Ladda upp" />
+        </form>
+
       </div>
 
-    </form>
-
-
-  </div>
-
+    </div>
+ </div>
 
 
 
-  <!-- END of webbpage -->
+    <!-- END of webbpage -->
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 

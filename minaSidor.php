@@ -29,16 +29,16 @@
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./adminIndex.php"><b>Sök</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
@@ -47,10 +47,13 @@
   </div>
 
   <div class="container col-lg-6 col-md-6 col-sm-12">
-    <div class="jumbotron">
-      <h4 class="searchHeader"> Min Profil </h4> <br>
+    <div class="card">
+      <div class="card-header text-center">
+        <h3 class=""> Min Profil </h3>
+      </div>
+      <br>
 
-      <div class="minInfo ">
+      <div class="minInfo card-body">
 
         <form action="" method="">
           <!-- inputs för all information som vi vill ha -->
@@ -91,24 +94,25 @@
         </form>
       </div>
 
+      <div class="card-footer">
+        <button id="btn1" class="btn btn-secondary btn " onclick="sparaProfil()">
+          Spara Profil
+        </button>
+
+      </div>
+
 
     </div>
-    <button id="btn1" class="btn btn-secondary btn-sm " onclick="sparaProfil()">
-      Spara Profil
-    </button>
+
+
+
   </div>
-
-
-
 
 
 
   <div class="container">
 
-
-
-
-    <div class="d-flex justify-content-center"> <a class="nav-link" href="./index.php" onClick="logOut()">LOGGA UT</a> </div>
+    <div class="d-flex justify-content-center"> <a class="nav-link" href="./index.php" onClick="logOut()"><b>LOGGA UT</a></b> </div>
 
   </div>
 

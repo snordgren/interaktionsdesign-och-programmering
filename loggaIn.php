@@ -29,16 +29,16 @@
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
 
-      <li class="nav-item">
+      <li class="nav-item mx-2">
           <a class="nav-link" href="./index.php"><b>Hem</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
@@ -48,8 +48,8 @@
   </div>
 
   <div class="container">
-  <div class="d-flex justify-content-center"> <p> Log-in för endast anställda </p> </div>
-    <div class="d-flex justify-content-center"> <a href="./adminIndex.php" onClick="login()">LOGGA IN</a> </div>
+  <div class="d-flex justify-content-center"> <p> <b>För anställda:</b> </p> </div>
+    <div class="d-flex justify-content-center"> <a href="./adminIndex.php" class="nav-link"  onClick="login()"><b>LOGGA IN</b></a> </div>
 
     <script>
       function login() {

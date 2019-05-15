@@ -44,16 +44,16 @@
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
 
-      <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./index.php"><b>Hem</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./tipsa.php"><b>Tipsa</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
         </li>
 
@@ -63,35 +63,43 @@
   </div>
 
   <div class="container col-lg-6 col-md-6 col-sm-12">
-    <div class="jumbotron">
-      <h3 class="searchHeader"> Tipsa oss </h3> <br>
 
-      <h5 style="margin-left: 10px;">Har du fångat något som kan vara utav intresse för oss? Tipsa!</h5> <br> <br>
-      <div class="tipsaInput ">
-
-        <form action="" method="">
-
-          <label> Namn: </label>
-          <!-- definierar label för att kunna hantera de på ett lätt sätt i css.-->
-
-          <input id="namnID" type="text" class="txt8"> <br> <br>
-
-
-          <label> Beskrivning:* </label>
-          <textarea id="beskrivningID" value="">  </textarea> <br><br>
-
-          <button style="width: 210px; height: 50px; margin-left: 10.3em;" id="btn5" class="btn btn-secondary btn-sm ">
-            Bifoga bild
-          </button> <br> <br>
-
-
-        </form>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="searchHeader"> Tipsa oss </h3> <br>
       </div>
+      <div class="card-body">
 
-      <button style="width: 100px; height: 50px;" id="btn1" class="btn btn-primary btn-sm " onclick="skickaTips()">
-        Skicka Tips
-      </button>
+        <h5 style="margin-left: 10px;">Har du fångat något som kan vara utav intresse för oss? Tipsa!</h5> <br> <br>
+        <div class="tipsaInput ">
 
+          <form action="" method="">
+
+            <label> Namn: </label>
+            <!-- definierar label för att kunna hantera de på ett lätt sätt i css.-->
+
+            <input id="namnID" type="text" class="txt8"> <br> <br>
+
+
+            <label> Beskrivning:* </label>
+            <textarea id="beskrivningID" value="">  </textarea> <br><br>
+
+            <button style="width: 210px; height: 50px; margin-left: 10.3em;" id="btn5" class="btn btn-secondary btn-sm ">
+              Bifoga bild
+            </button> <br> <br>
+
+
+          </form>
+        </div>
+
+      </div>
+      <div class="card-footer">
+
+        <button style="width: 100px; height: 50px;" id="btn1" class="btn btn-primary btn-sm " onclick="skickaTips()">
+          Skicka Tips
+        </button>
+
+      </div>
 
     </div>
 

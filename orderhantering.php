@@ -30,16 +30,16 @@
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link " href="./adminIndex.php"><b>Sök</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
@@ -77,49 +77,59 @@
 
   ?>
 
-  <div class="container jumbotron col-lg-8 col-md-6 col-sm-12">
 
-    <h2>Pågående Order</h2>
 
-    <div class="currentOrder container card cardimg " id="orderTable">
+  <div class="container">
 
-      <table class="table table-bordered table-striped table-editable ">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Titel</th>
-            <th>Villkor</th>
-            <th>Pris (SEK)</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
+    <div class="card">
 
-          <?php
-          //Loopar igenom arrayerna och printar in i tabellen direkt
-          for ($x = 0; $x < Count($ItemsId); $x++) {
+    <div class="container card-header card-rounded text-center">
+      <h3>Pågående Order</h3>
+    </div>
 
-            echo "<tr ><th class='table-info' width='5%'>";
-            echo $ItemsId[$x];
-            echo "</th><th>";
-            echo $ItemsTitel[$x];
-            echo "</th><th width='30%'>";
-            echo "<div class='card'><input type='text' placeholder='Köpvillkor (Rättigheter)'> </input> </div>";
-            echo "</th><th width='10%'>";
-            echo "<input type='text' id='";
-            echo $ItemsId[$x];
-            echo "'> </input> ";
-            echo "</th><th width='15%'>";
-            echo "<div class='card'><button type='button' class='btn-taBortUrOrder' id='";
-            echo $ItemsId[$x];
-            echo "' onclick='removeFromOrder(this.id)'> Ta bort </button> </div>";
-            echo "</th></tr>";
-          };
+    <div class="card-body">
 
-          ?>
+      <div class="currentOrder container cardimg" id="orderTable">
 
-        </tbody>
-      </table>
+        <table class="table table-bordered table-striped  ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titel</th>
+              <th>Villkor</th>
+              <th>Pris (SEK)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <?php
+            //Loopar igenom arrayerna och printar in i tabellen direkt
+            for ($x = 0; $x < Count($ItemsId); $x++) {
+
+              echo "<tr><th class='table-info pt-3 ' width='5%'>";
+              echo $ItemsId[$x];
+              echo "</th><th class='pt-3'>";
+              echo $ItemsTitel[$x];
+              echo "</th><th width='30%'>";
+              echo "<div class='mt-2'><input type='text' placeholder='Köpvillkor (Rättigheter)'> </input> </div>";
+              echo "</th><th width='10%'>";
+              echo "<input type='text' class='mt-2' id='";
+              echo $ItemsId[$x];
+              echo "'> </input> ";
+              echo "</th><th width='15%'>";
+              echo "<div class='pt-1'><button type='button' class='btn btn-taBortUrOrder' id='";
+              echo $ItemsId[$x];
+              echo "' onclick='removeFromOrder(this.id)'> Ta bort </button> </div>";
+              echo "</th></tr>";
+            };
+
+            ?>
+
+          </tbody>
+        </table>
+
+      </div>
 
     </div>
 
@@ -129,7 +139,7 @@
 
 
 
-    <div class="container " id="orderButtons">
+    <div class="container" id="orderButtons">
 
       <div class="container mb-3" id="rabatt">
 
@@ -163,12 +173,7 @@
       }
     </script>
 
-
-  </div>
-
-
-
-  <div class="container jumbotron col-lg-8 col-md-6 col-sm-12">
+<div class="card-footer card-rounded">
     <div class="container">
       <button type="button" class="btn-orderhantering btn btn-secondary">Visa Historiska Ordrar</button>
     </div>
@@ -177,6 +182,14 @@
       <button type="button" class="btn-orderhantering btn btn-secondary">Sök Order</button>
     </div>
   </div>
+
+    </div>
+
+  </div>
+
+
+
+
 
 
 

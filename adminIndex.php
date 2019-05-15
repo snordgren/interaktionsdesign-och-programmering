@@ -34,16 +34,16 @@
 
       <ul class="nav nav-pills">
 
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link active" href="./adminIndex.php"><b>Sök</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./laddaUppBild.php"><b>Ladda upp</b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./orderhantering.php"><b>Orderhantering </b></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <a class="nav-link" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
 
@@ -51,12 +51,13 @@
     </div>
 
   </div>
-
+  
   <div class="container col-lg-8 col-md-6 col-sm-12">
+  <hr>
     <div class="d-flex justify-content-center">
-      <h2> Bildsök </h2>
+      <h2> Sök </h2>
     </div>
-    <div class="jumbotron">
+    <div class="container">
 
 
       <div class="d-flex justify-content-center">
@@ -72,7 +73,7 @@
       <div class="d-flex justify-content-center">
         <p> <b> Bästa träffar: </p> </b> &nbsp; <p id="txtSuggestion"> </p>
       </div>
-
+      <hr>
       <!-- Jumbotron ends -->
     </div>
 

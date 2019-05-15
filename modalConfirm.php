@@ -18,7 +18,7 @@
           </div>
           <div class="modal-body">
             <div>
-              <b> <p id="dialogMsg" style="font-size:18px;"> Bilden lades till i Ordern! </p> </b>
+               <p id="dialogMsg" style="font-size:18px;"> Bilden lades till i Ordern! </p> 
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
