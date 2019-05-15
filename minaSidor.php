@@ -29,7 +29,7 @@
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="./adminIndex.php"><b>Sök</b></a>
         </li>
         <li class="nav-item">
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="container col-lg-4 col-md-6 col-sm-12">
+  <div class="container col-lg-6 col-md-6 col-sm-12">
     <div class="jumbotron">
       <h4 class="searchHeader"> Min Profil </h4> <br>
 
@@ -74,16 +74,18 @@
           </button>
 
           <div class="collapse" id="collapseExample">
-            <div class="card card-body">
+            <div class="card-body">
 
               <div class="form-check form-check-inline">
                 <input class="txt9" type="password" id="password1" placeholder="Nuvarande Lösenord">
-                <input class="txt9" type="password" id="password2" placeholder="Nytt Lösenord">
-                <input class="txt9" type="password" id="password3" placeholder="Bekräfta Lösenord">
 
-                <button id="btn2" class="btn btn-secondary btn-sm" onclick="resetPw()">
-                  Spara
-                </button>
+
+              </div>
+              <input class="txt9" type="password" id="password2" placeholder="Nytt Lösenord">
+              <input class="txt9" type="password" id="password3" placeholder="Bekräfta Lösenord">
+              <button id="btn2" class="btn btn-secondary btn-sm" onclick="resetPw()">Spara</button>
+            </div>
+          </div>
 
 
         </form>
@@ -91,10 +93,11 @@
 
 
     </div>
+    <button id="btn1" class="btn btn-secondary btn-sm " onclick="sparaProfil()">
+      Spara Profil
+    </button>
   </div>
-  <button id="btn1" class="btn btn-secondary btn-sm " onclick="sparaProfil()">
-    Spara Profil
-  </button>
+
 
 
 

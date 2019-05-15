@@ -24,11 +24,13 @@
   <!-- START of webbpage -->
 
   <div class="jumbotron jumbotron-fluid">
-  <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;"> <p class="text-center"> Bothniabladets Bildbyrå <p> </h1>
+    <h1 style="background-color:#7ABDFF; color:#FFFFFF; font-family:Courier New, Courier, monospace;">
+      <p class="text-center"> Bothniabladets Bildbyrå <p>
+    </h1>
 
     <div class="navContainer container d-flex justify-content-center">
       <ul class="nav nav-pills">
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link " href="./adminIndex.php"><b>Sök</b></a>
         </li>
         <li class="nav-item">
@@ -125,10 +127,18 @@
     <br>
     <!-- BREAK -->
 
+
+
     <div class="container " id="orderButtons">
 
+      <div class="container mb-3" id="rabatt">
+
+        <input type='text' placeholder='Rabatt' style="width:70px; text-align:center;" value="0"> % Rabatt
+
+      </div>
+
       <button type="button" class="btn-orderhantering btn btn-primary float-right">Bekräfta Order</button>
-      <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()" >Töm Order</button>
+      <button type="button" class="btn-orderhantering btn btn-secondary float-right" onclick="resetOrder()">Töm Order</button>
 
     </div>
 
@@ -140,17 +150,17 @@
 
     <!-- DÖLJER OM TOM -->
     <script>
-            var count = <?php echo Count($ItemsId);?>;
+      var count = <?php echo Count($ItemsId); ?>;
 
-            if (count == 0) {
+      if (count == 0) {
 
-              document.getElementById("orderTable").innerHTML = "<b> Inga bilder tillagda </b>";
+        document.getElementById("orderTable").innerHTML = "<b> Inga bilder tillagda </b>";
 
-              document.getElementById("orderButtons").innerHTML = "";
+        document.getElementById("orderButtons").innerHTML = "";
 
-              document.getElementById("btnKundUppgifter").innerHTML = "";
+        document.getElementById("btnKundUppgifter").innerHTML = "";
 
-            }
+      }
     </script>
 
 

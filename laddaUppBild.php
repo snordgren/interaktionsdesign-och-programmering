@@ -44,7 +44,6 @@
       document.getElementById('sparade-ord').innerHTML = allWords.toString();
 
     }
-
   </script>
 
 
@@ -95,7 +94,7 @@
       </div>
       <!-- Antal gånger bilden får användas av Bothniabladet -->
       <div class="col-12 mt-4" id="antalGångerDiv">
-        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0'  required />
+        <input type='hidden' name='usage-number' id='antalGångerInput' class='col-1' placeholder='Antal' value='0' required />
       </div>
 
       <div class="col-12 mt-4">
@@ -173,10 +172,10 @@
 
           //(2)Insert Nyckelord
           $nyckelord = explode(",", $keywords);
-          
+
           //En array som håller koll på vilka nyckelordid's som associeras med bilden
           $nyckelordIds = array('test');
-          
+
           //Sätter in i Nyckelord
           for ($x = 0; $x < count($nyckelord); $x++) {
 
@@ -200,8 +199,7 @@
                 //Sparar id't
                 array_push($nyckelordIds, $row['rowid']);
               }
-
-            }else {
+            } else {
               $sql = "INSERT INTO Nyckelord (Ord) 
               VALUES (?)";
 
@@ -220,7 +218,6 @@
                 array_push($nyckelordIds, $row['maxValue']);
               }
             }
-
           }
 
           //(3)Sätter in i nyckelordrad all ord som (börjar på 1, då första ordet i arrayen är ett random ord)
@@ -233,10 +230,10 @@
             $stmt->execute([$imgId, $nyckelordIds[$x]]);
           }
 
-                    //rename ($name, To highest ID);
-                    $oldName = "./img/uploaded/" . $Name . ".jpeg";
-                    $newName = "./img/" . $imgId . ".jpeg";
-                    rename($oldName, $newName);
+          //rename ($name, To highest ID);
+          $oldName = "./img/uploaded/" . $Name . ".jpeg";
+          $newName = "./img/" . $imgId . ".jpeg";
+          rename($oldName, $newName);
         } else {
           echo $image->getError();
         }
