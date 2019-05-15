@@ -62,7 +62,7 @@
     array_push($ItemsId, $row['fkey_Orginalbild']);
     $imgId = $row['fkey_Orginalbild'];
 
-    $sql2 = "SELECT * FROM Orginalbild WHERE Orginalbild.Orginalbild_Id = ?;";
+    $sql2 = "SELECT * FROM Orginalbild WHERE Orginalbild.rowid = ?;";
 
     $stmt2 = $db->prepare($sql2);
     $stmt2->execute([$imgId]);
@@ -87,7 +87,7 @@
             <th>ID</th>
             <th>Titel</th>
             <th>Villkor</th>
-            <th>Pris</th>
+            <th>Pris (SEK)</th>
             <th></th>
           </tr>
         </thead>
