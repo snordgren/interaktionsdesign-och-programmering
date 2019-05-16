@@ -59,7 +59,7 @@
           <a class="nav-link active" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link" href="./loggain.php"><b>Logga in</b></a>
+          <a class="nav-link" href="./login.php"><b>Logga in</b></a>
         </li>
 
       </ul>
@@ -80,7 +80,7 @@
 
     <div class="card ">
       <div class="card-header text-center">
-        <h3 class="searchHeader"> Kontaktformulär </h3> <br>
+        <h3 > Kontaktformulär </h3> <br>
       </div>
 
       <div class="card-body">
@@ -155,7 +155,7 @@
         <br>
         <div class="row">
           <div class="col-12">
-            <p> Vid e-post kontakt ber vi er vänligen att använda kontaktformuläret till vänster.
+            <p> Vid e-post kontakt ber vi er vänligen att använda kontaktformuläret på denna sida.
           </div>
         </div>
 

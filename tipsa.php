@@ -62,11 +62,11 @@
 
   </div>
 
-  <div class="container col-lg-6 col-md-6 col-sm-12">
+  <div class="container col-lg-5 col-md-6 col-sm-12">
 
     <div class="card">
-      <div class="card-header">
-        <h3 class="searchHeader"> Tipsa oss </h3> <br>
+      <div class="card-header text-center">
+        <h3> Tipsa oss </h3>
       </div>
       <div class="card-body">
 

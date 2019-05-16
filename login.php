@@ -19,6 +19,11 @@
   <?php include 'modal.php'; ?>
   <script type="text/javascript" src="image.js"></script>
 
+  <script>
+      function login() {
+        alert("Loggar in..");
+      }
+    </script>
 
 
   <!-- START of webbpage -->
@@ -39,7 +44,7 @@
           <a class="nav-link" href="./kontaktaOss.php"><b>Kontakt </b></a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link active" href="./loggain.php"><b>Logga in</b></a>
+          <a class="nav-link active" href="./login.php"><b>Logga in</b></a>
         </li>
 
       </ul>
@@ -48,14 +53,9 @@
   </div>
 
   <div class="container">
+    
   <div class="d-flex justify-content-center"> <p> <b>För anställda:</b> </p> </div>
     <div class="d-flex justify-content-center"> <a href="./adminIndex.php" class="nav-link"  onClick="login()"><b>LOGGA IN</b></a> </div>
-
-    <script>
-      function login() {
-        alert("Loggar in..");
-      }
-    </script>
 
 
     <!-- Container ends -->

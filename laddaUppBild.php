@@ -79,7 +79,7 @@
     <div class="card">
       <div class="card-header">
         <h3> Ladda upp en bild </h3>
-    </div>
+      </div>
 
       <div class="card-body">
 
@@ -87,6 +87,10 @@
 
           <div class="col-12">
             <input type="text" id="title-input" class="col-12" placeholder="Titel" name="image-title" required />
+          </div>
+
+          <div class="col-12 mt-4">
+            <input type="text" id="fotograf-input" class="col-12" placeholder="Fotograf" name="image-fotograf" required />
           </div>
 
           <div class="col-12 mt-4">
@@ -143,22 +147,24 @@
               echo $_POST['image-ownership'];
               echo $_POST['usage-number'];
               echo $_POST['keywords'];
+              echo $_POST['image-fotograf'];
 
               $titel = $_POST['image-title'];
               $desc = $_POST['image-description'];
               $ownship = $_POST['image-ownership'];
               $usgNr = $_POST['usage-number'];
+              $fotograf = $_POST['image-fotograf'];
 
               $keywords = $_POST['keywords'];
 
               //**********INSERTS******************* */
 
               //(1)Insert Orginalbild
-              $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar) 
-                  VALUES (?, ?, ?, ?)";
+              $sql = "INSERT INTO Orginalbild (Titel, Beskrivning, BildStatus, AntalAnvändningar, Fotograf) 
+                  VALUES (?, ?, ?, ?, ?)";
 
               $stmt = $db->prepare($sql);
-              $stmt->execute([$titel, $desc, $ownship, $usgNr]);
+              $stmt->execute([$titel, $desc, $ownship, $usgNr, $fotograf]);
 
               //**********GET ID AND RENAME******************* */
 
@@ -180,15 +186,24 @@
               //(2)Insert Nyckelord
               $nyckelord = explode(",", $keywords);
 
+              //Sätter in fotografen som matades in
+              $fotograf= strtolower($fotograf);
+              array_push($nyckelord, $fotograf);
+
+              //Sätter in Titel som matades in
+              $titel= strtolower($titel);
+              array_push($nyckelord, $titel);
+
               //En array som håller koll på vilka nyckelordid's som associeras med bilden
               $nyckelordIds = array('test');
+
 
               //Sätter in i Nyckelord
               for ($x = 0; $x < count($nyckelord); $x++) {
 
                 //Kollar om ordet redan finns
                 $sql = "SELECT rowid, * FROM Nyckelord
-            WHERE Nyckelord.Ord = ?";
+              WHERE Nyckelord.Ord = ?";
 
                 $stmt = $db->prepare($sql);
                 $stmt->execute([$nyckelord[$x]]);
@@ -257,16 +272,16 @@
       </div>
 
     </div>
- </div>
+  </div>
 
 
 
-    <!-- END of webbpage -->
+  <!-- END of webbpage -->
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
