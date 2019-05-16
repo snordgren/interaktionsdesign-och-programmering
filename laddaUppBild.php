@@ -77,7 +77,7 @@
   <div class="container col-lg-8 col-md-6 col-sm-12">
 
     <div class="card">
-      <div class="card-header">
+      <div class="card-header text-center">
         <h3> Ladda upp en bild </h3>
       </div>
 
