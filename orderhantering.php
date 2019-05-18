@@ -17,6 +17,7 @@
 <body>
   <!-- Inkluderar projektfiler -->
   <?php include 'modal.php'; ?>
+  <?php include 'modalCustomer.php'; ?>
   <?php include 'sqlite.php'; ?>
   <script type="text/javascript" src="image.js"></script>
   <script type="text/javascript" src="order.js"></script>
@@ -143,7 +144,7 @@
 
       <div class="container mb-3" id="rabatt">
 
-        <input type='text' placeholder='Rabatt' style="width:70px; text-align:center;" value="0"> % Rabatt
+        <input type='text' placeholder='Rabatt' style="width:70px; text-align:center;" value="0"> % Rabatt på hela ordern
 
       </div>
 
@@ -153,7 +154,7 @@
     </div>
 
     <div class="container " id="btnKundUppgifter">
-      <button type="button" class="btn-orderhantering btn btn-primary">Visa/Lägg Till Kunduppgifter</button>
+      <button type="button" class="btn-orderhantering btn btn-primary" data-toggle="modal" data-target="#customerModal">Visa/Lägg Till Kunduppgifter</button>
     </div>
 
 

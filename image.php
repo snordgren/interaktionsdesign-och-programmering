@@ -55,7 +55,7 @@ if ($requestId == "showImages") {
 
     //To avoid duplicates we create an array
     $usedBilder = array("test");
-    
+
 
     //1 sökord
     if ($count === 1) {
@@ -140,21 +140,21 @@ if ($requestId == "showImages") {
         }
 
 
-
         // 2 sökord 
-    } else if ($count === 2) {
+    } else if ($count == 2) {
 
 
         //Förbereder för SQL "LIKE"
-        $i = "%" . $qArray[1] . "%";
+        $i = $qArray[1] . "%";
 
 
         //Denna tar emot 2 ord. Endast det sista ordet ska behandlas med LIKE, medans orden innan är ===
         $sql1 = "SELECT Kategorirad.fkey_Orginalbild, Orginalbild.Antalkategorier
                     FROM Orginalbild 
-                    INNER JOIN Kategorirad ON Kategorirad.fkey_Orginalbild = Orginalbild.Orginalbild_Id 
+                    INNER JOIN Kategorirad ON Kategorirad.fkey_Orginalbild = Orginalbild.rowid 
                     INNER JOIN Kategori ON Kategorirad.fkey_Kategori = Kategori.Kategori_Id 
-                    WHERE Kategori.KategoriNamn = ? OR Kategori.KategoriNamn LIKE ? 
+                    WHERE Kategori.KategoriNamn = ? 
+                    OR Kategori.KategoriNamn LIKE ? 
                     GROUP BY Kategorirad.fkey_Orginalbild 
                     HAVING AntalKategorier = 2";
 
@@ -260,9 +260,14 @@ if ($requestId == "showImages") {
     //Echoar ut i URL'n 
     echo $response === "" ? "" : $response;
 
+
+
     //*********************************************************************************************** */
+
+
     // SAVE THE WORD THAT MATCHED
 } else if ($requestId == "m") {
+
 
     //Get the input
     $q = $_REQUEST["q"];
@@ -277,52 +282,113 @@ if ($requestId == "showImages") {
     $qt = strtolower($q);
     $qt = trim($qt);
 
-    //Förbereder för SQL "LIKE"
-    $i = "%" . $qt . "%";
+    //Gör stringen till array
+    $array = explode(" ", $qt);
+
+    //***************************1 ord******************************* */
+
+    if (count($array) == 1) {
+
+        //Förbereder för SQL "LIKE"
+        $i = "%" . $array[0] . "%";
 
 
-    //*********************KATEGORI************************* */
+        //*********************KATEGORI************************* */
 
-    $sqlmatch1 = "SELECT * 
-    FROM Kategori k
-    WHERE k.KategoriNamn 
-    LIKE ?;";
+        $sqlmatch1 = "SELECT * 
+        FROM Kategori k
+        WHERE k.KategoriNamn 
+        LIKE ?;";
 
-    $match1 = $db->prepare($sqlmatch1);
-    $match1->execute([$i]);
+        $match1 = $db->prepare($sqlmatch1);
+        $match1->execute([$i]);
 
-    //Går igenom alla rows som quarin gav en efter en
-    while ($row = $match1->fetch(PDO::FETCH_ASSOC)) {
+        //Går igenom alla rows som quarin gav en efter en
+        while ($row = $match1->fetch(PDO::FETCH_ASSOC)) {
 
-        //Sparar bilden som lades till i listan av usedBilder
-        array_push($matchingWords, $row['KategoriNamn']);
-    }
-
-
-
-    //********************NYCKELORD**************************
-
-    $sqlmatch2 = "SELECT * 
-    FROM Nyckelord n
-    WHERE n.Ord 
-    LIKE ?;";
-
-    $match2 = $db->prepare($sqlmatch2);
-    $match2->execute([$i]);
-
-    //Går igenom alla rows som quarin gav en efter en
-    while ($row = $match2->fetch(PDO::FETCH_ASSOC)) {
-
-        //Sparar bilden som lades till i listan av usedBilder
-        array_push($matchingWords, $row['Ord']);
-    }
+            //Sparar bilden som lades till i listan av usedBilder
+            array_push($matchingWords, $row['KategoriNamn']);
+        }
 
 
 
-    //En string med varje ord separerat med ", "
-    for ($x = 1; $x < Count($matchingWords); $x++) {
+        //********************NYCKELORD**************************
 
-        $response .= $matchingWords[$x] . ", ";
+        $sqlmatch2 = "SELECT * 
+        FROM Nyckelord n
+        WHERE n.Ord 
+        LIKE ?;";
+
+        $match2 = $db->prepare($sqlmatch2);
+        $match2->execute([$i]);
+
+        //Går igenom alla rows som quarin gav en efter en
+        while ($row = $match2->fetch(PDO::FETCH_ASSOC)) {
+
+            //Sparar bilden som lades till i listan av usedBilder
+            array_push($matchingWords, $row['Ord']);
+        }
+
+
+
+        //En string med varje ord separerat med ", "
+        for ($x = 1; $x < Count($matchingWords); $x++) {
+
+            $response .= $matchingWords[$x] . ", ";
+        }
+
+
+        //***************************2 ord******************************* */
+
+    } else if (count($array) == 2) {
+
+        //Förbereder för SQL "LIKE"
+        $i = "%" . $array[0] . "%"; 
+        $z = "%" . $array[1] . "%";
+
+        //*********************KATEGORI************************* */
+
+        $sqlmatch1 = "SELECT * 
+        FROM Kategori k
+        WHERE k.KategoriNamn 
+        LIKE ?;";
+
+        $match1 = $db->prepare($sqlmatch1);
+        $match1->execute([$i]);
+
+        //Går igenom alla rows som quarin gav en efter en
+        while ($row = $match1->fetch(PDO::FETCH_ASSOC)) {
+
+            if (!array_search($row['KategoriNamn'], $matchingWords)){
+
+                //Sparar bilden som lades till i listan av usedBilder
+                array_push($matchingWords, $row['KategoriNamn']);
+            }
+        }
+
+        $sqlmatch1 = "SELECT * 
+        FROM Kategori k
+        WHERE k.KategoriNamn 
+        LIKE ?;";
+
+        $match1 = $db->prepare($sqlmatch1);
+        $match1->execute([$z]);
+
+        //Går igenom alla rows som quarin gav en efter en
+        while ($row = $match1->fetch(PDO::FETCH_ASSOC)) {
+
+            if (!array_search($row['KategoriNamn'], $matchingWords)){
+
+                //Sparar bilden som lades till i listan av usedBilder
+                array_push($matchingWords, $row['KategoriNamn']);
+            }
+        }
+
+         //En string med varje ord separerat med ", "
+         for ($x = 1; $x < Count($matchingWords); $x++) {
+
+            $response .= $matchingWords[$x] . ", ";
+        }
     }
 
     //Echoar ut i URL'n 

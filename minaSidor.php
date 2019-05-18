@@ -41,9 +41,10 @@
         <li class="nav-item mx-2">
           <a class="nav-link active" href="./minaSidor.php"><b>Mina sidor</b></a>
         </li>
-
+   
       </ul>
     </div>
+    
   </div>
 
   <div class="container col-lg-6 col-md-6 col-sm-12">
@@ -95,7 +96,7 @@
       </div>
 
       <div class="card-footer">
-        <button id="btn1" class="btn btn-secondary btn " onclick="sparaProfil()">
+        <button id="btn1" class="btn btn-primary btn " onclick="sparaProfil()">
           Spara Profil
         </button>
 
